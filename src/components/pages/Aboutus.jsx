@@ -61,7 +61,7 @@ const AboutUs = () => {
           
           <div className="spt-image-section">
           
-          <img src="/public/imgs/about-1.png" alt="SPT Banner" className="spt-image" />
+          <img src="/imgs/about-1.png" alt="SPT Banner" className="spt-image" />
   
           </div>
         </div>
