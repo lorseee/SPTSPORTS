@@ -102,14 +102,7 @@ const TestimonialSlider = () => {
         </div>
       </div>
 
-      <div className="navigation">
-        <button className="nav-button" onClick={goToPrevious}>
-          ‹
-        </button>
-        <button className="nav-button" onClick={goToNext}>
-          ›
-        </button>
-      </div>
+      
 
       <div className="progress-indicators">
         {testimonials.map((_, index) => (

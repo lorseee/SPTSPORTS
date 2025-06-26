@@ -11,8 +11,9 @@ const Home = () => {
     <div className="home-page">
       <HeroSection />
       <Info />
-      <EventsDisplay />
       <Services />
+      <EventsDisplay />
+      
       <TestimonialSlider />
       <Logos />
       {/* Additional sections can be added here */}

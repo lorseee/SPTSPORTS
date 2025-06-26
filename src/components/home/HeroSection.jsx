@@ -95,18 +95,7 @@ const HeroSection = () => {
         </div>
 
         {/* Image Indicators */}
-        <div className="image-indicators">
-          {backgroundImages.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentImageIndex(index)}
-              className={`indicator-dot ${
-                index === currentImageIndex ? 'active' : ''
-              }`}
-              aria-label={`Go to image ${index + 1}`}
-            />
-          ))}
-        </div>
+        
       </div>
     </section>
   );

@@ -91,29 +91,9 @@
     margin: 0;
   }
   
-  .navigation {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 40px;
-  }
+ 
   
-  .nav-button {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(211, 14, 14, 0.3);
-    color: white;
-    font-size: 20px;
-    margin-top: -15px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.8s ease;
-    backdrop-filter: blur(10px);
-  }
+  
   
   .nav-button:hover {
     background: rgba(163, 21, 21, 0.2);

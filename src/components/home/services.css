@@ -368,7 +368,7 @@
   color: #b4ff00;
   font-size: 2rem;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.3s;
 }
 
 .close-btn:hover {
@@ -422,7 +422,7 @@
 @keyframes slideInUp {
   from {
     opacity: 0;
-    transform: translateY(50px) scale(0.9);
+    transform: translateY(50px) scale(0.3);
   }
   to {
     opacity: 1;
