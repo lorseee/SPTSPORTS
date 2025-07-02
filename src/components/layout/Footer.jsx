@@ -14,21 +14,17 @@ const Footer = () => {
               <img src="/imgs/logo.png" alt="SPT Sports" className="logo-image" />
             </div>
             <p className="footer-description">
-              Welcome to our running community! Discover the joy of running, 
-              connect with fellow enthusiasts, and unlock your full potential with 
-              our expert resources and training programs.
+            SPT Sports is a leading sports management company with a nationwide presence. We promote sports through high-quality events, our own academies, and infrastructure development. Known for our professionalism and efficiency.
             </p>
             <div className="social-icons">
-              <a href="#" className="social-icon">
+              <a href="https://www.facebook.com/sptsports/?ref=embed_page#" className="social-icon" target="_blank" rel="noopener noreferrer">
                 <Facebook size={20} />
               </a>
-              <a href="#" className="social-icon">
-                <Linkedin size={20} />
-              </a>
-              <a href="#" className="social-icon">
+              
+              <a href="https://www.instagram.com/sptsports.in?igsh=b2dzY3h4dW40b3cz" className="social-icon" target="_blank" rel="noopener noreferrer">
                 <Instagram size={20} />
               </a>
-              <a href="#" className="social-icon">
+              <a href="mailto:frontoffice@sptindia.com" className="social-icon">
                 <Mail size={20} />
               </a>
             </div>
@@ -39,7 +35,7 @@ const Footer = () => {
             <h3 className="footer-title">Academy Address</h3>
             <div className="contact-item">
               <MapPin size={24} />
-              <span className="contact-value">SPT Sports Academy,
+              <span className="contact-value">Banana Sports ,
 Mullur, Sarjapur Road,
 Bangalore-560035</span>
             </div>
@@ -59,7 +55,7 @@ Bangalore-560034</span>
               <Phone size={18} />
               <div>
                 <span className="contact-label">Contact us at</span>
-                <span className="contact-value">001-1234-88888</span>
+                <span className="contact-value">81470 72726</span>
               </div>
             </div>
           </div>

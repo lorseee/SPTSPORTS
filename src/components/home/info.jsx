@@ -1,6 +1,7 @@
 // info.jsx
 import React from "react";
 import "./info.css";
+import { Link } from "react-router-dom";
 
 const Info = () => {
   return (
@@ -13,20 +14,18 @@ const Info = () => {
         <div className="checkerboard" />
         <p className="welcome-text">WELCOME TO SPT SPORTS!</p>
         <h1 className="subheading">
-          SPT SPORTS - YOUR ULTIMATE <br />
-          SPORTS COMMUNITY
+          PIONEERS IN SPORTS MANAGEMENT<br />
+          SINCE 1998
         </h1>
         <p className="description">
-          Welcome to our vibrant running community, where we organize
-          exciting running events, provide helpful running tutorials, and keep
-          you informed with the latest running news.
+        SPT Sports is a leading sports management company with a nationwide presence. We promote sports through high-quality events, our own academies, and infrastructure development. Known for our professionalism and efficiency, we organize corporate tournaments across cricket, football, tennis, throwball, and more.
         </p>
-        <hr />
         <div className="cta">
-          <button className="find-more">FIND OUT MORE</button>
-          
+          <Link to="/about">
+            <button className="find-more">FIND OUT MORE</button>
+          </Link>
         </div>
-      </div>
+        </div>
     </section>
   );
 };

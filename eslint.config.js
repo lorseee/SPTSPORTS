@@ -2,6 +2,9 @@ import js from '@eslint/js'
 import globals from 'globals'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import ScrollToTop from "./ScrollToTop";
 
 export default [
   { ignores: ['dist'] },
@@ -31,3 +34,18 @@ export default [
     },
   },
 ]
+
+export function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
+<BrowserRouter>
+  <ScrollToTop />
+  {/* your routes here */}
+</BrowserRouter>

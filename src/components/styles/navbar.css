@@ -2,7 +2,7 @@
 .main-nav {
     background-color: transparent;
     backdrop-filter: blur(0px);
-    position: fixed;
+    
     top: 0;
     left: 0;
     right: 0;
@@ -13,7 +13,7 @@
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 1rem;
     width: 100%;
@@ -45,7 +45,7 @@
 
 .nav-menu {
     display: none;
-    margin-left: 250px;
+    margin-left: 400px;
     gap: 48px;
 }
 

@@ -5,30 +5,37 @@ const TestimonialSlider = () => {
   const testimonials = [
     {
       id: 1,
-      name: "Jane Nguyen",
-      role: "Running Club Member",
-      quote: "I've Always Struggled With Staying Consistent With Exercise, But Being Part Of The Running Club Has Changed That",
+      name: "Mr. Mahi Vardhan",
+      role: "HR Senior Specialist, CGI",
+      quote: "Firstly, would like to take this opportunity to thank you for your service offered for CGI Bangalore Sports Fest 2016. This is the 5th time CGI Bangalore is working with your team and needless to say, again the quality of service offered was top notch.",
       emoji: "🏃‍♂️"
     },
     {
       id: 2,
-      name: "Mike Johnson",
-      role: "Fitness Enthusiast",
-      quote: "The Community Support Here Is Amazing. I've Never Felt More Motivated To Push My Limits And Achieve My Goals",
+      name: "Mr. Rajith Narayanan",
+      role: "Novozymes",
+      quote: "Thank you for all arrangements. We will hold more such events in future.",
       emoji: "💪"
     },
     {
       id: 3,
-      name: "Sarah Chen",
-      role: "Marathon Runner",
-      quote: "Joining This Club Was The Best Decision I Made. The Training Programs Are Excellent And The People Are Incredible",
+      name: "Mr Chaitanya chaudhary",
+      role: "Team Lead,Accenture",
+      quote: "Thank you for the great support, good arrangement and coordination in past 2 weeks. We are very happy with the service and support from your team and once again thank you for making the event a success. Looking forward for a great support like this time in future.",
       emoji: "🏃‍♀️"
     },
     {
       id: 4,
-      name: "Alex Rodriguez",
-      role: "Weekend Warrior",
-      quote: "From Couch To 5K, This Club Helped Me Transform My Life. The Coaches Are Patient And The Progress Is Real",
+      name: "Mr. Cephas Patil",
+      role: "Airbus",
+      quote: "We enjoyed the facility and the arrangements extended towards us during the event. We took look forward to conduct other events at SPT sports in future.",
+      emoji: "🌟"
+    },
+    {
+      id: 5,
+      name: "Mr. Ravindra Birje Pune",
+      role: "Institute of Sports Science and Technology",
+      quote: "Thanks for the support to our Pune team which visited for (All India) football tournament...Everybody enjoyed the well organized tournament 0n 5-6 July 2014...This has happened due to your hard work, dedication and polite cooperation.",
       emoji: "🌟"
     }
   ];
@@ -82,7 +89,6 @@ const TestimonialSlider = () => {
           transform: `translateX(${isTransitioning ? '20px' : '0'})`
         }}
       >
-        <div className="quote-mark">"</div>
         
         <div className="profile-section">
           <div className="profile-emoji">
@@ -93,11 +99,7 @@ const TestimonialSlider = () => {
         </div>
 
         <div className="testimonial-text">
-          <div className="stars">
-            {[...Array(5)].map((_, i) => (
-              <span key={i} className="star">★</span>
-            ))}
-          </div>
+          
           <p className="quote-text">"{currentTestimonial.quote}"</p>
         </div>
       </div>

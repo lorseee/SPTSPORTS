@@ -3,26 +3,27 @@ import PageHeader from '../layout/PageHeader';
 import '../styles/about.css';
 
 const AboutUs = () => {
-  const [activeSection, setActiveSection] = useState('mission');
+  const [activeSection, setActiveSection] = useState('mission','about');
 
   const missionContent = {
     title: "Our Mission",
-    description: "Our objective for this project was to develop a comprehensive financial management platform that provided users with a centralized dashboard for managing their finances.",
+    description: "Establishing standards in the sunrise industry of sports management and attain leadership position by exceeding expectations to nature talent at grassroots level and to become a distinct provider of opportunities to the target segment",
+   
     features: [
-      "Identification Of Monthly Income",
-      "Creation Of Savings And Investment Plan",
-      "Management And Calculation Of Monthly Expenses",
-      "Management And Calculation Of Monthly Expenses"
+      "To explore and excel in related fields where others do not tread",
+      "Conceptualisation of epic events like Corporate 5-a-side football and biggest Inter-district Kabbadi tournaments in India",
+      "Having pioneered the concept of Integrated Sports Management in India, we are among the fastest growing companies in the segment. ",
+      "To provide employment opportunities to ex-sportspersons."
     ]
   };
 
   const aboutContent = {
-    title: "Our About",
-    description: "We are a team of passionate developers and financial experts dedicated to creating innovative solutions for personal finance management. Our platform combines cutting-edge technology with user-friendly design.",
+    title: "Our Vision",
+    description: "To make accessible, opportunity and infrastructure to all sports enthusiasts and to provide an environment for achieving excellence by developing one's talent and also to become outstanding individuals through this medium.",
     features: [
-      "Expert Team Of Financial Advisors",
-      "Advanced Security And Data Protection",
-      "24/7 Customer Support And Assistance",
+      "The first private golf academy in India with 9-Hole par-3 Golf Course",
+      "Pioneered the concept of Integrated Sports Management in India",
+      "Tutors to golf teaching professionals through Indian Golf Teachers Federation (IGTF - an affiliate of USGTF)",
       "Continuous Platform Updates And Improvements"
     ]
   };
@@ -43,17 +44,13 @@ const AboutUs = () => {
             
             <div className="spt-description">
               <p>
-                Physical fitness is not only one of the most important keys to a healthy body; it is the 
-                basis of dynamic and creative intellectual activity. The relationship between the 
-                soundness of the body and the activities of the mind is subtle and complex. Much is 
-                not yet understood.
+              In 1992, my passion for sports got ignited after reading an article in a newspaper about a Delhi based gold medallist wrestler selling channa (grams) on the roads of Chandini Chowk. In my own humble fashion I began organising Summer Camps and tournament in Noida (near Delhi in 1992). By 1998 a burning desire to contribute quality sports opportunities was transformed into a profession coupled with the hope to provide employment opportunities for our sportspersons
               </p>
-              
-              <p>
-                But we do know what the Greeks knew: that intelligence and skill can only function at 
-                the peak of their capacity when the body is healthy and strong; that hardy spirits and 
-                tough minds usually inhabit sound gods.
-              </p>
+              <div className="quote-attribution">
+                - AMIT SARAN
+                Promotor-SPT SPORTS
+              </div>
+             
               
               
             </div>
@@ -88,7 +85,7 @@ const AboutUs = () => {
                 className={`tab-button ${activeSection === 'about' ? 'active' : ''}`}
                 onClick={() => setActiveSection('about')}
               >
-                Our About
+                Our Vision
               </button>
             </div>
                         

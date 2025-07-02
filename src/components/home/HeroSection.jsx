@@ -4,10 +4,16 @@ import './hero.css';
 
 const HeroSection = () => {
   const backgroundImages = [
-    '/imgs/logo.png',
+  
+    '/imgs/bg-3.jpg',
+    '/imgs/bg-4.jpg',
+    '/imgs/bg-5.jpg',
+    '/imgs/bg-6.jpg',
+    '/imgs/bg-7.jpg',
+    '/imgs/bg-8.jpg',
     '/imgs/gallery-1.png',
     '/imgs/gallery-2.png',
-    '/imgs/bg.jpg',
+    '/imgs/bg-1.jpg',
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -53,42 +59,9 @@ const HeroSection = () => {
       
       <div className="container">
         {/* Navigation Arrows */}
-        <div className="nav-arrows">
-          <button
-            onClick={goToPrevious}
-            className="nav-arrow prev"
-            aria-label="Previous image"
-          >
-            <ChevronLeft size={24} />
-          </button>
-
-          <button
-            onClick={goToNext}
-            className="nav-arrow next"
-            aria-label="Next image"
-          >
-            <ChevronRight size={24} />
-          </button>
-        </div>
-
         <div className="hero-content">
           {/* Left Section - Text and Booking */}
-          <div className="hero-text">
-            <h1 className="hero-title">
-              WELCOME TO  <span className="hero-title-highlight">
-                <br/>SPT SPORTS</span>
-            </h1>
-            
-            <p className="hero-description">
-              The platform that turns aspirations into accomplishments. Join now and
-              unleash your potential in the world of fitness and wellness.
-            </p>
-            
-            <button className="join-btn">
-              <span>BOOK A GROUND NOW</span>
-              <ChevronRight size={20} />
-            </button>
-          </div>
+          
           
           {/* Right Section - Event Card */}
       
