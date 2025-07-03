@@ -174,8 +174,9 @@
   right: -10px;
   background: none;
   border: none;
+  outline:none;
   font-size: 28px;
-  color: #666;
+  color: #0b0a0a;
   cursor: pointer;
   z-index: 10;
   width: 30px;
@@ -191,6 +192,11 @@
  
   color: #333;
 }
+.modal-close:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
 
 .modal-header {
   padding: 5px 10px 10px 20px; /* Reduced top padding */
@@ -204,7 +210,7 @@
   color: #333;
   font-size: 18px;
   font-weight: 600;
-  margin-top:-10px;
+  margin-top:-15px;
 }
 
 .modal-image-container {
@@ -227,19 +233,24 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  
-  color: rgb(15, 15, 15);
-  
+  box-shadow: none;
+  color: rgb(251, 249, 249);
+  outline:none;
   font-size: 24px;
   width: 50px;
   height: 50px;
-  
+  border:none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
  
+}
+.nav-arrow:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
 }
 
 .nav-arrow:hover {
@@ -248,11 +259,11 @@
 }
 
 .nav-arrow-left {
-  left: -12rem; /* Moved closer to image */
+  left: -2rem; /* Moved closer to image */
 }
 
 .nav-arrow-right {
-  right: -12rem; /* Moved closer to image */
+  right: -2rem; /* Moved closer to image */
 }
 
 .modal-footer {

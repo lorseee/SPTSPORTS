@@ -132,9 +132,10 @@ const Achievements = () => {
 
   return (
     <div className="about-page" 
-    style={{ backgroundImage: "url('/imgs/bg-7.jpg')" }}
->
-      <PageHeader title="Achievements" />
+    
+      >
+      <PageHeader title="Achievements" backgroundImage="/imgs/bg-7.jpg" />
+
 
       {/* Section Heading + Description */}
       

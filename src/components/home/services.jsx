@@ -8,7 +8,7 @@ const Services = () => {
     {
       id: 1,
       number: "01",
-      title: "Sports events",
+      title: "Sports Events",
       description: "Creating Sports IP’s for brands and corporates. Specialists in Intra company events and PAN India Sports Events",
       position: "left-1"
     },
@@ -22,7 +22,7 @@ const Services = () => {
     {
       id: 3,
       number: "03",
-      title: "Sports Infrastructure development",
+      title: "Sports Infrastructure Development",
       description: "Building sporting arenas and facilities since 1998 across various sports",
       position: "right-1"
     },
@@ -81,7 +81,7 @@ const Services = () => {
       fontFamily: 'Oswald, sans-serif',
       fontSize: 'clamp(2rem, 4vw, 3.5rem)',
       fontWeight: 900,
-      letterSpacing: '3px',
+      letterSpacing: '0.5px',
       marginBottom: '4rem',
       color: '#fff',
       textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',

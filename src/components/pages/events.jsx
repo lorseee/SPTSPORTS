@@ -174,36 +174,29 @@ const Events = () => {
       {/* Image Modal */}
       {isModalOpen && selectedCard && (
         <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close" onClick={closeModal}>
-              ×
-            </button>
-            
-            <div className="modal-header">
-              <h3>{selectedCard.title}</h3>
-              
-            </div>
-
-            <div className="modal-image-container">
-              <button className="nav-arrow nav-arrow-left" onClick={prevImage}>
-                ❮
-              </button>
-              
-              <img
-                src={getImagePath(selectedCard.folder, currentImageIndex)}
-                alt={`${selectedCard.title} - Image ${currentImageIndex + 1}`}
-                className="modal-image"
-              />
-              
-            <button className="nav-arrow nav-arrow-right" onClick={nextImage}>
-               ❯
-              </button>
-
-            </div>
-
-            
+        <button className="nav-arrow nav-arrow-left" onClick={(e) => { e.stopPropagation(); prevImage(); }}>
+          ❮
+        </button>
+      
+        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+          <button className="modal-close" onClick={closeModal}>×</button>
+          <div className="modal-header">
+            <h3>{selectedCard.title}</h3>
+          </div>
+          <div className="modal-image-container">
+            <img
+              src={getImagePath(selectedCard.folder, currentImageIndex)}
+              alt={`${selectedCard.title} - Image ${currentImageIndex + 1}`}
+              className="modal-image"
+            />
           </div>
         </div>
+      
+        <button className="nav-arrow nav-arrow-right" onClick={(e) => { e.stopPropagation(); nextImage(); }}>
+          ❯
+        </button>
+      </div>
+      
       )}
     </div>
   );

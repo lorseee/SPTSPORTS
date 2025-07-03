@@ -246,11 +246,11 @@
   .mobile-nav-link {
     display: block;
     text-decoration: none;
-    color: #ffffff;
+    color: #0b0a0a;
     font-weight: 600;
     font-size: 16px;
     padding: 15px 30px;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid #291170;
     transition: all 0.3s ease;
     position: relative;
   }

@@ -22,11 +22,12 @@
   font-size: 3.25rem;
   font-family: 'Oswald', sans-serif;
   font-weight: 800;
-  letter-spacing: 0.6px;
+  letter-spacing: -0.9px;
   color: #da251d;
   text-align: center;
   flex: 1;
-  margin: 0; /* Remove any default margins */
+  margin: 0;
+  margin-left: 5rem; /* Remove any default margins */
 }
 
 .view-all-button {
@@ -215,6 +216,7 @@
   
   .event-title {
     font-size: 1.25rem;
+    
   }
   
   .event-description {
@@ -222,7 +224,8 @@
   }
   
   .events-title {
-    font-size: 1.8rem;
+    font-size: 2rem;
+    margin-left:-0.2rem;
   }
 }
 

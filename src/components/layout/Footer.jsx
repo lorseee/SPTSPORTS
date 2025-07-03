@@ -35,9 +35,9 @@ const Footer = () => {
             <h3 className="footer-title">Academy Address</h3>
             <div className="contact-item">
               <MapPin size={24} />
-              <span className="contact-value">Banana Sports ,
+              <span className="contact-value">Banana Sports,
 Mullur, Sarjapur Road,
-Bangalore-560035</span>
+Bangalore - 560035</span>
             </div>
           </div>
 
@@ -48,7 +48,7 @@ Bangalore-560035</span>
               <MapPin size={24} />
               <span className="contact-value">10 Sports House, 1st main
 1st block, Koramangala,
-Bangalore-560034</span>
+Bangalore - 560034</span>
             </div>
 
             <div className="contact-item">
