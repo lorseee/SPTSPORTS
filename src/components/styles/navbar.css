@@ -12,7 +12,7 @@
   }
   
   .main-nav.scrolled {
-    background: rgba(255, 255, 255, 0.98);
+    background: rgba(8, 8, 8, 0.98);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
   }
   
@@ -61,7 +61,7 @@
     text-decoration: none;
     color: #ffffff;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 18px;
     letter-spacing: 0.5px;
     padding: 8px 16px;
     border-radius: 25px;

@@ -2,10 +2,10 @@
 .page-header {
   position: relative;
   height: 400px; /* Adjust height as needed */
-  background-image: url('/imgs/image-3.jpeg'); /* Replace with your image path */
+  /* Replace with your image path */
   background-size: cover;
   
-  background-position: center;
+  background-position: center -40%;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;

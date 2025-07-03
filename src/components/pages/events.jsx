@@ -138,14 +138,13 @@ const Events = () => {
   }, [location.search]);
 
     return (
-    <div className="about-page">
-      <PageHeader title="Events" 
-      style={{
-        backgroundImage: 'url("/imgs/5.jpg")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center'
-      }}/>
-      
+      <div className="about-page"
+      style={{ backgroundImage: "url('/imgs/bg-8.jpg')",
+        backgroundRepeat: 'no-repeat'
+       }}>
+        <PageHeader 
+          title="EVENTS"        
+        />
       
       <div className="sports-cards-container">
         <div className="cards-grid">

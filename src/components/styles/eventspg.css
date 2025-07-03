@@ -1,4 +1,48 @@
 /* SportsCards.css */
+.page-header {
+  position: relative;
+  height: 400px; /* Adjust height as needed */
+  /* Replace with your image path */
+  background-size: cover;
+  
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+/* Dark overlay for better text readability */
+.page-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  z-index: 1;
+}
+
+.page-header-content {
+  position: relative;
+  z-index: 2;
+}
+
+.page-header h1 {
+  font-size: 4rem;
+  font-family: Oswald, sans-serif;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Alternative: Sports-themed gradient background if no image */
+.page-header-gradient {
+  background: linear-gradient(135deg, #2f1d6d 0%, #da251d 50%, #0c196b 100%);
+}
 .sports-cards-container {
   padding: 100px;
   background-color: #f5f5f5;

@@ -32,7 +32,13 @@ const AboutUs = () => {
 
   return (
     
-    <div className="about-page">
+    <div className="about-page"
+    style={{ backgroundImage: "url('/imgs/bg-6.jpg')",
+      
+
+      
+       
+     }}>
       <PageHeader 
         title="About Us"        
       />

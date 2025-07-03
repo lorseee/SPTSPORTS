@@ -2,7 +2,7 @@
 .page-header {
   position: relative;
   height: 450px; /* Adjust height as needed */
-  background-image: url('/imgs/image-3.jpeg'); /* Replace with your image path */
+  /* Replace with your image path */
   background-size: cover;
   
   background-position: center;
