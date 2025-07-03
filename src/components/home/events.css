@@ -1,7 +1,7 @@
 /* Events Display CSS - Horizontal Layout */
 .events-container {
   width: 100%;
-  max-width: 1300px; /* Increased for horizontal layout */
+  max-width: 1536px; /* Increased for bigger screens */
   margin: 0 auto;
   padding: 1rem;
   padding-bottom: 4rem;
@@ -20,13 +20,13 @@
 
 .events-title {
   font-size: 3.25rem;
-  margin-left:3.92rem;
   font-family: 'Oswald', sans-serif;
   font-weight: 800;
   letter-spacing: 0.6px;
   color: #da251d;
   text-align: center;
   flex: 1;
+  margin: 0; /* Remove any default margins */
 }
 
 .view-all-button {
@@ -37,7 +37,8 @@
   font-weight: 500;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s; /* Fixed: was "black0.2s" */
+  transition: background-color 0.2s;
+  flex-shrink: 0; /* Prevent button from shrinking */
 }
 
 .view-all-button:hover {
@@ -48,36 +49,38 @@
 .events-grid {
   display: flex;
   flex-direction: row;
-  gap: 0rem;
-  margin-left: 25px;
-  margin-right: -20px;
+  gap: 1.5rem; /* Added proper gap */
   flex-wrap: nowrap;
-  justify-content: flex-start;
+  justify-content: center; /* Center the cards */
+  align-items: stretch; /* Make all cards same height */
 }
 
 /* Event Card */
 .event-card {
-  flex: 0 0 40%;
-  max-width: 90%;
-  min-width: 0;
+  flex: 1; /* Equal width distribution */
+  min-width: 0; /* Prevent flex items from overflowing */
+  max-width: 400px; /* Limit maximum width */
   background-color: rgb(13, 13, 13);
   border-radius: 12px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   overflow: hidden;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: flex;
+  flex-direction: column;
 }
 
 .event-card:hover {
   transform: translateY(-12px);
-    background-color: rgb(13, 13, 13); /* Explicitly maintain black background */
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.15);
+  background-color: rgb(13, 13, 13);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.15);
 }
 
 /* Event Image */
 .event-image-container {
-  height: 14rem; /* Slightly smaller for horizontal layout */
+  height: 14rem;
   width: 100%;
+  flex-shrink: 0;
 }
 
 .event-image {
@@ -90,19 +93,23 @@
 .event-content {
   padding: 1rem;
   padding-top: 0.5rem;
-  padding-bottom: -10rem;
   text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .event-title {
-  font-size: 1.6rem; /* Slightly smaller for horizontal layout */
+  font-size: 1.6rem;
   font-weight: 700;
-  cursor:pointer;
+  cursor: pointer;
   font-family: 'Oswald', sans-serif;
   color: #f4eded;
   margin-bottom: 0.75rem;
   line-height: 1.3;
 }
+
 .event-title-link {
   color: inherit;
   text-decoration: none;
@@ -141,58 +148,92 @@
 .event-description {
   color: #6b7280;
   font-family: 'Jost', sans-serif;
-  font-size: 0.8rem; /* Smaller text for horizontal layout */
+  font-size: 0.8rem;
   line-height: 1.5;
+  margin-top: auto; /* Push to bottom */
 }
 
 /* Responsive Design */
+@media (min-width: 1920px) {
+  .events-container {
+    max-width: 1800px;
+  }
+  
+  .events-title {
+    font-size: 4rem;
+  }
+  
+  .event-image-container {
+    height: 16rem;
+  }
+  
+  .event-title {
+    font-size: 1.8rem;
+  }
+  
+  .event-content {
+    padding: 1.5rem;
+  }
+  
+  .event-description {
+    font-size: 0.9rem;
+  }
+}
+
 @media (max-width: 1024px) {
   .events-container {
-      max-width: 900px;
+    max-width: 900px;
   }
+  
   .events-grid {
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 1.5rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem;
   }
+  
   .event-card {
-      flex: 1 1 calc(50% - 1.5rem);
-      max-width: calc(50% - 1.5rem);
+    flex: 1 1 calc(50% - 1.5rem);
+    max-width: calc(50% - 1.5rem);
   }
 }
 
 @media (max-width: 768px) {
   .events-container {
-      max-width: 100%;
-      padding: 1rem;
+    max-width: 100%;
+    padding: 1rem;
   }
+  
   .events-grid {
-      flex-direction: column;
-      gap: 1.5rem;
+    flex-direction: column;
+    gap: 1.5rem;
   }
+  
   .event-card {
-      max-width: 100%;
-      flex: 1 1 100%;
+    max-width: 100%;
+    flex: 1 1 100%;
   }
+  
   .event-title {
-      font-size: 1.25rem;
+    font-size: 1.25rem;
   }
+  
   .event-description {
-      font-size: 0.875rem;
+    font-size: 0.875rem;
   }
+  
   .events-title {
-      font-size: 1.8rem;
+    font-size: 1.8rem;
   }
 }
 
 @media (max-width: 480px) {
   .events-header {
-      flex-direction: column;
-      gap: 1rem;
-      text-align: center;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
   }
   
   .events-title {
-      font-size: 1.5rem;
+    font-size: 1.5rem;
   }
 }

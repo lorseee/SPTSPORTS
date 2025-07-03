@@ -31,6 +31,7 @@ const AboutUs = () => {
   const currentContent = activeSection === 'mission' ? missionContent : aboutContent;
 
   return (
+    
     <div className="about-page">
       <PageHeader 
         title="About Us"        
@@ -76,13 +77,13 @@ const AboutUs = () => {
             {/* Tab Navigation */}
             <div className="tab-navigation">
               <button 
-                className={`tab-button ${activeSection === 'mission' ? 'active' : ''}`}
+                className={`tab-button ${activeSection === 'mission' ? 'active' : 'inactive'}`}
                 onClick={() => setActiveSection('mission')}
               >
                 Our Mission
               </button>
               <button 
-                className={`tab-button ${activeSection === 'about' ? 'active' : ''}`}
+                className={`tab-button ${activeSection === 'about' ? 'active' : 'inactive'}`}
                 onClick={() => setActiveSection('about')}
               >
                 Our Vision

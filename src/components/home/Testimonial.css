@@ -1,202 +1,485 @@
 /* TestimonialSlider.css */
-
 .testimonial-container {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-    padding: 20px 20px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  padding: 20px 20px;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  border-radius: 10px;
+  max-width: 1300px;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.testimonial-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  justify-content: center;
+  font-size: 20px;
+  margin-left: 6rem;
+  min-height: 200px;
+  transition: all 0.3s ease-in-out;
+  flex: 1;
+}
+
+.quote-mark {
+  font-size: 90px;
+  margin-top: -100px;
+  color: #da251d;
+  font-weight: bold;
+  line-height: 1;
+  margin-left: 40px;
+  margin-right: 10px;
+  flex-shrink: 0;
+  margin-bottom: -30px;
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 120px;
+  flex-shrink: 0;
+  margin-left: -4rem;
+  align-self: flex-start;
+}
+
+.profile-emoji {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #da251d 0%, #ac0c0c 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  margin-bottom: 15px;
+  box-shadow: 0 8px 25px rgba(22, 53, 129, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.profile-emoji:hover {
+  transform: scale(1.1);
+}
+
+.profile-name {
+  font-size: 18px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 5px;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.profile-role {
+  font-size: 14px;
+  font-family: 'Jost', sans-serif;
+  color: #da251d;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.testimonial-text {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  min-height: 200px;
+}
+
+
+.quote-text {
+  font-size: 28px;
+  font-weight: 600;
+  color: white;
+  line-height: 1.4;
+  margin: 0;
+  padding-top: 10px;
+}
+
+.nav-button:hover {
+  background: rgba(163, 21, 21, 0.2);
+  border-color: #da251d;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(218, 37, 29, 0.4);
+}
+
+.nav-button:active {
+  transform: translateY(0);
+}
+
+.nav-button:focus,
+.progress-dot:focus {
+  outline: 2px solid #da251d;
+  outline-offset: 2px;
+}
+
+.progress-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 25px;
+  flex-shrink: 0;
+}
+
+.progress-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-bottom: -2rem;
+}
+
+.progress-dot:hover {
+  background: rgba(218, 37, 29, 0.7);
+  transform: scale(1.3);
+}
+
+.progress-dot.active {
+  background: #da251d;
+  transform: scale(1.2);
+}
+
+.testimonial-content.transitioning {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+/* Large Desktop Screens (1440px and above) */
+@media (min-width: 1440px) {
+  .testimonial-container {
+    max-width: 1500px;
+    padding: 60px 40px;
     padding-bottom: 3rem;
-    padding-top: 2rem;
-    border-radius: 10px;
-    max-width: 1300px;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
+    min-height: 400px;
   }
-  
+
   .testimonial-content {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    font-size:20px;
-    margin-left:7rem;
-    min-height: 90px;
-    transition: all 0.3s ease-in-out;
+    gap: 60px;
+    margin-left: 8rem;
+    min-height: 250px;
   }
-  
+
   .quote-mark {
-    font-size: 90px;
-    margin-top: -100px;
-    color: #da251d;
-    font-weight: bold;
-    line-height: 1;
-    margin-left: 40px;
-    margin-right: 10px;
-    flex-shrink: 0;
-    margin-bottom: -30px;
+    font-size: 120px;
+    margin-left: 60px;
+    margin-top: -120px;
   }
-  
-  .profile-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 120px;
-    flex-shrink: 0;
-    margin-left:-4rem;
-  }
-  
+
   .profile-emoji {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #da251d 0%, #ac0c0c 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 40px;
-    margin-bottom: 15px;
-    box-shadow: 0 8px 25px rgba(22, 53, 129, 0.3);
+    width: 100px;
+    height: 100px;
+    font-size: 50px;
   }
-  
+
   .profile-name {
-    font-size: 18px;
-    font-family:'Oswald', sans-serif;
-    font-weight: 600;
-    color: white;
-    margin-bottom: 5px;
-    text-align: center;
-  }
-  
-  .profile-role {
-    font-size: 14px;
-    font-family:'Jost', sans-serif;
-    color: #da251d;
-    text-align: center;
-  }
-  
- 
-  
-  .stars {
-    display: flex;
-    gap: 3px;
-    margin-bottom: 20px;
-  }
-  
-  .star {
-    color: #fbbf24;
     font-size: 20px;
   }
-  
+
+  .profile-role {
+    font-size: 16px;
+  }
+
   .quote-text {
-    font-size: 28px;
-    font-weight: 600;
-    color: white;
-    line-height: 1.4;
+    font-size: 32px;
+    line-height: 1.5;
+  }
+
+  .progress-dot {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* Desktop and Laptop (1024px - 1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .testimonial-container {
+    max-width: 1300px;
+    padding: 34px 30px;
+    padding-bottom:-3rem;
+    min-height: 240px;
+  }
+
+  .testimonial-content {
+    gap: 50px;
+    margin-left: 6rem;
+  }
+
+  .quote-mark {
+    font-size: 80px;
+    margin-left: 30px;
+    margin-top: -90px;
+  }
+
+  .profile-section {
+    margin-left: -3rem;
+  }
+
+  .quote-text {
+    font-size: 26px;
+  }
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .testimonial-container {
+    padding: 35px 25px;
+    max-width: 900px;
+    min-height: 280px;
+  }
+
+  .testimonial-content {
+    gap: 30px;
+    margin-left: 2rem;
+    min-height: 250px;
+  }
+
+  .quote-mark {
+    font-size: 70px;
+    margin-left: 20px;
+    margin-top: -80px;
+  }
+
+  .profile-section {
+    margin-left: -6rem;
+    min-width: 100px;
+  }
+
+  .profile-emoji {
+    width: 70px;
+    height: 70px;
+    font-size: 35px;
+  }
+
+  .profile-name {
+    font-size: 16px;
+  }
+
+  .profile-role {
+    font-size: 13px;
+  }
+
+  .quote-text {
+    font-size: 24px;
+    line-height: 1.3;
+  }
+}
+
+/* Mobile Devices (up to 768px) */
+@media (max-width: 768px) {
+  .testimonial-container {
+    padding: 20px 15px;
+    min-height: 220px;
+    border-radius: 8px;
+  }
+
+  .testimonial-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 25px;
+    margin-left: 0;
+    min-height: 300px;
+    align-items: center;
+  }
+
+  .quote-mark {
+    font-size: 60px;
     margin: 0;
+    margin-bottom: -20px;
+    order: -1;
+    align-self: flex-start;
+    margin-left: 10px;
   }
-  
- 
-  
-  
-  
-  .nav-button:hover {
-    background: rgba(163, 21, 21, 0.2);
-    border-color: #da251d;
-    transform: translateY(-2px);
+
+  .profile-section {
+    margin-left: 17.2rem;
+    min-width: auto;
+    order: 1;
   }
-  
-  .nav-button:active {
-    transform: translateY(0);
+
+  .profile-emoji {
+    width: 70px;
+    height: 70px;
+    font-size: 35px;
   }
-  
+
+  .profile-name {
+    font-size: 16px;
+  }
+
+  .profile-role {
+    font-size: 13px;
+  }
+
+  .testimonial-text {
+    order: 2;
+    min-height: auto;
+    text-align: left;
+  }
+
+  .quote-text {
+    font-size: 20px;
+    line-height: 1.4;
+    text-align: center;
+    padding-top: 0;
+  }
+
   .progress-indicators {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 25px;
+    margin-top: 20px;
+    gap: 6px;
   }
-  
+
   .progress-dot {
     width: 8px;
     height: 8px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    margin-top:1rem;
-    margin-bottom: -2rem;
+    margin-top: 0.5rem;
+  }
+}
+
+/* Small Mobile Devices (up to 480px) */
+@media (max-width: 480px) {
+  .testimonial-container {
+    padding: 25px 12px;
+    min-height: 400px;
+    margin: 10px;
+  }
+
+  .testimonial-content {
+    gap: 20px;
+    min-height: 300px;
+  }
+
+  .quote-mark {
+    font-size: 50px;
+    margin-left: 5px;
+  }
+
+  .profile-emoji {
+    width: 60px;
+    height: 60px;
+    font-size: 30px;
+  }
+
+  .profile-name {
+    font-size: 15px;
+    line-height: 1.2;
+  }
+
+  .profile-role {
+    font-size: 12px;
+    line-height: 1.3;
+  }
+
+  .quote-text {
+    font-size: 18px;
+    line-height: 1.3;
+  }
+
+  .progress-indicators {
+    margin-top: 15px;
+    gap: 5px;
+  }
+
+  .progress-dot {
+    width: 6px;
+    height: 6px;
+    margin-top: 0.3rem;
+  }
+}
+
+/* Very Small Mobile Devices (up to 360px) */
+@media (max-width: 360px) {
+  .testimonial-container {
+    padding: 20px 10px;
+    min-height: 280px;
+    margin: 5px;
+  }
+
+  .testimonial-content {
+    gap: 15px;
+    min-height: 280px;
+  }
+  .profile-section {
+    margin-left: 4rem;
+    min-width: auto;
+    order: 1;
+  }
+
+  .quote-mark {
+    font-size: 45px;
+  }
+
+  .profile-emoji {
+    width: 55px;
+    height: 55px;
+    font-size: 28px;
+  }
+
+  .profile-name {
+    font-size: 14px;
+  }
+
+  .profile-role {
+    font-size: 11px;
+  }
+
+  .quote-text {
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
+  .progress-dot {
+    width: 5px;
+    height: 5px;
+  }
+}
+
+/* Loading animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-container,
+  .profile-emoji,
+  .testimonial-content,
+  .progress-dot,
+  .nav-button {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .testimonial-container {
+    border: 2px solid white;
+  }
+  
+  .profile-name,
+  .quote-text {
+    color: #ffffff;
   }
   
   .progress-dot.active {
-    background: #da251d;
-    transform: scale(1.2);
+    background: #ffffff;
   }
-  
-  /* Mobile Responsive Styles */
-  @media (max-width: 768px) {
-    .testimonial-container {
-      padding: 40px 20px;
-    }
-  
-    .testimonial-content {
-      flex-direction: column;
-      text-align: center;
-      gap: 30px;
-    }
-  
-    .quote-mark {
-      font-size: 60px;
-      margin-right: 0;
-      order: -1;
-    }
-  
-    .quote-text {
-      font-size: 22px;
-    }
-  
-    .profile-section {
-      min-width: auto;
-    }
-  }
-  
-  /* Additional animations for smoother transitions */
-  .testimonial-content.transitioning {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-  
-  /* Enhanced hover effects */
-  .profile-emoji:hover {
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
-  }
-  
-  .nav-button:hover {
-    box-shadow: 0 4px 15px rgba(163, 230, 53, 0.4);
-  }
-  
-  .progress-dot:hover {
-    background: rgba(218, 22, 22, 0.7);
-    transform: scale(1.3);
-  }
-  
-  /* Accessibility improvements */
-  .nav-button:focus,
-  .progress-dot:focus {
-    outline: 2px solid #a3e635;
-    outline-offset: 2px;
-  }
-  
-  /* Loading animation for initial state */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .testimonial-container {
-    animation: fadeIn 0.6s ease-out;
-  }
+}

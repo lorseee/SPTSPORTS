@@ -35,7 +35,7 @@ const EventsDisplay = () => {
     <div className="events-container">
       {/* Header with title and View All button */}
       <div className="events-header">
-        <h1 className="events-title">Our Events</h1>
+        <h1 className="events-title">OUR EVENTS</h1>
         <Link to="/events" className="view-all-button">
           View All
         </Link>

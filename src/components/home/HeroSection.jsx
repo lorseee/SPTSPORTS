@@ -4,16 +4,15 @@ import './hero.css';
 
 const HeroSection = () => {
   const backgroundImages = [
-  
+    '/imgs/gallery-2.png',
+    '/imgs/bg-1.jpg',
     '/imgs/bg-3.jpg',
-    '/imgs/bg-4.jpg',
     '/imgs/bg-5.jpg',
     '/imgs/bg-6.jpg',
     '/imgs/bg-7.jpg',
     '/imgs/bg-8.jpg',
     '/imgs/gallery-1.png',
-    '/imgs/gallery-2.png',
-    '/imgs/bg-1.jpg',
+    
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);

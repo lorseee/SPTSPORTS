@@ -126,11 +126,11 @@
 
 .modal-close {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: -2px;
+  right: -10px;
   background: none;
   border: none;
-  font-size: 24px;
+  font-size: 28px;
   color: #666;
   cursor: pointer;
   z-index: 10;
@@ -139,7 +139,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
+  
   transition: all 0.3s ease;
 }
 
@@ -169,7 +169,7 @@
   align-items: center;
   justify-content: center;
   background-color: #f8f9fa;
-  min-height: 300px; /* Increased from 300px */
+  min-height: 200px; /* Increased from 300px */
 }
 
 .modal-image {
@@ -184,7 +184,7 @@
   top: 50%;
   transform: translateY(-50%);
   
-  color: white;
+  color: rgb(15, 15, 15);
   
   font-size: 24px;
   width: 50px;
@@ -195,7 +195,7 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  z-index: 10;
+ 
 }
 
 .nav-arrow:hover {
@@ -204,11 +204,11 @@
 }
 
 .nav-arrow-left {
-  left: -45px; /* Moved closer to image */
+  left: -12rem; /* Moved closer to image */
 }
 
 .nav-arrow-right {
-  right: -45px; /* Moved closer to image */
+  right: -12rem; /* Moved closer to image */
 }
 
 .modal-footer {
@@ -216,11 +216,12 @@
   text-align: center;
   border-top: 0px solid #eee;
   background-color: #f8f9fa;
-  padding-bottom:12px;
+  padding-bottom:20px;
+  margin-bottom:20px;
 }
 
 .image-counter {
-  color: #666;
+  color: #0e0d0d;
   font-size: 14px;
   font-weight: 500;
 }

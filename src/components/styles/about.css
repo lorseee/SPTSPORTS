@@ -1,3 +1,49 @@
+/* Page Header Styles with Background Image */
+.page-header {
+  position: relative;
+  height: 400px; /* Adjust height as needed */
+  background-image: url('/imgs/image-3.jpeg'); /* Replace with your image path */
+  background-size: cover;
+  
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+/* Dark overlay for better text readability */
+.page-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  z-index: 1;
+}
+
+.page-header-content {
+  position: relative;
+  z-index: 2;
+}
+
+.page-header h1 {
+  font-size: 4rem;
+  font-family: Oswald, sans-serif;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Alternative: Sports-themed gradient background if no image */
+.page-header-gradient {
+  background: linear-gradient(135deg, #2f1d6d 0%, #da251d 50%, #0c196b 100%);
+}
+
 /* Main container for side-by-side layout */
 .main-content-container {
   display: flex;
@@ -45,7 +91,6 @@
   margin-right:10px;
   max-width: 500px;
   height: 290px;
- 
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   object-fit: cover;
 }
@@ -75,7 +120,6 @@
   text-align: right;
   margin-top: 20px;
   letter-spacing: 0.3px;
-  
 }
 
 /* About Container Styles - Bottom Section */
@@ -84,8 +128,7 @@
   background-color: #ffffff;
   padding: 20px 20px; /* Reduced top padding */
   padding-bottom:50px;
-  margin-top: 0;
-   /* Ensure no margin */
+  margin-top: 0; /* Ensure no margin */
 }
 
 .about-content {
@@ -113,13 +156,12 @@
 
 .content-section {
   flex: 1;
-  max-width: none; 
-  /* Remove max-width restriction */
+  max-width: none; /* Remove max-width restriction */
 }
 
 .tab-navigation {
   display: flex;
-  margin-bottom: 32px;
+  margin-bottom: 35px;
   margin-top:3px;
   border-bottom: 1px solid #969292;
 }
@@ -127,7 +169,7 @@
 .tab-button {
   background: none;
   border: none;
-  font-size: 45px;
+  font-size: 55px;
   font-weight: 500;
   padding: 0 0 12px 0;
   margin-right: 48px;
@@ -140,6 +182,11 @@
 
 .tab-button.active {
   color: #da251d;
+  font-size: 25px;
+}
+.tab-button.inactive {
+  color:#2f1d6d;
+  font-size: 25px;
 }
 
 .tab-button.active::after {
@@ -205,6 +252,14 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
+  .page-header {
+    height: 300px;
+  }
+  
+  .page-header h1 {
+    font-size: 3rem;
+  }
+  
   .spt-content-wrapper {
     flex-direction: column;
     gap: 30px;
@@ -227,6 +282,14 @@
 }
 
 @media (max-width: 768px) {
+  .page-header {
+    height: 250px;
+  }
+  
+  .page-header h1 {
+    font-size: 2.5rem;
+  }
+  
   .main-content-container {
     padding: 15px;
   }
@@ -251,6 +314,14 @@
 }
 
 @media (max-width: 480px) {
+  .page-header {
+    height: 200px;
+  }
+  
+  .page-header h1 {
+    font-size: 2rem;
+  }
+  
   .spt-sports-container,
   .about-container {
     padding: 20px 15px;

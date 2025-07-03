@@ -96,7 +96,7 @@ const Achievements = () => {
   const [currentImage, setCurrentImage] = useState(0);
 
   // Section 2 states
-  const [activeYear, setActiveYear] = useState(0);
+  const [activeYear, setActiveYear] = useState('2002');
   const [currentImage2, setCurrentImage2] = useState(0);
 
   const nextImage = () => {
