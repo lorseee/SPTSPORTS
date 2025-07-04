@@ -4,9 +4,9 @@
   max-width: 1536px; /* Increased for bigger screens */
   margin: 0 auto;
   padding: 1rem;
-  padding-bottom: 4rem;
+  padding-bottom: 2rem;
   background: linear-gradient(to right, #ffffff, #f9f9f9);
-  min-height: 90vh;
+  min-height: 80vh;
   position: relative;
 }
 
@@ -93,7 +93,7 @@
 /* Event Content */
 .event-content {
   padding: 1rem;
-  padding-top: 0.5rem;
+  padding-top: 0.2rem;
   text-align: center;
   flex: 1;
   display: flex;
@@ -102,7 +102,7 @@
 }
 
 .event-title {
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   font-weight: 700;
   cursor: pointer;
   font-family: 'Oswald', sans-serif;

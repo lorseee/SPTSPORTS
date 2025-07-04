@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Logo and Description */}
           <div className="footer-section">
             <div className="footer-logo">
-              <img src="/imgs/logo.png" alt="SPT Sports" className="logo-image" />
+              <img src="/imgs/tablogo.jpg" alt="SPT Sports" className="logo-image" />
             </div>
             <p className="footer-description">
             SPT Sports is a leading sports management company with a nationwide presence. We promote sports through high-quality events, our own academies, and infrastructure development. Known for our professionalism and efficiency.

@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import PageHeader from '../layout/PageHeader';
 import '../styles/eventspg.css';
-import { useLocation } from 'react-router-dom';
 
 const Events = () => {
-  const [selectedCard, setSelectedCard] = useState(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const location = useLocation();
+  const navigate = useNavigate();
 
   const cardsData = [
     {
@@ -59,109 +56,51 @@ const Events = () => {
       id: 6,
       image: "/projects/golf/2.jpeg",
       title: "JSW Marathon",
+      date: "Date not specified",
       imageCount: 5,
-      type: "golf",
-      folder: "golf"
+      type: "marathon",
+      folder: "golf" // Note: This might need to be changed to "jsw" if images are in a different folder
     }
   ];
 
-  const openModal = (card) => {
-    setSelectedCard(card);
-    setCurrentImageIndex(0);
-    setIsModalOpen(true);
-    document.body.style.overflow = 'hidden'; // Prevent body scroll
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedCard(null);
-    setCurrentImageIndex(0);
-    document.body.style.overflow = 'unset'; // Restore body scroll
-  };
-
-  const nextImage = () => {
-    if (selectedCard) {
-      setCurrentImageIndex((prev) => 
-        prev === selectedCard.imageCount - 1 ? 0 : prev + 1
-      );
-    }
-  };
-
-  const prevImage = () => {
-    if (selectedCard) {
-      setCurrentImageIndex((prev) => 
-        prev === 0 ? selectedCard.imageCount - 1 : prev - 1
-      );
-    }
-  };
-
-  const getImagePath = (folder, index) => {
-    const imageNumber = index + 1;
-    const extension = folder === 'sunfeast' ? 'jpg' : 'jpeg';
-    return `/projects/${folder}/${imageNumber}.${extension}`;
-  };
-
-  // Handle keyboard navigation
-  React.useEffect(() => {
-    const handleKeyPress = (e) => {
-      if (!isModalOpen) return;
-      
-      switch (e.key) {
-        case 'ArrowLeft':
-          prevImage();
-          break;
-        case 'ArrowRight':
-          nextImage();
-          break;
-        case 'Escape':
-          closeModal();
-          break;
-        default:
-          break;
-      }
+  const handleCardClick = (card) => {
+    // Define specific routes for each event
+    const eventRoutes = {
+      1: '/pages/golf',           // N.A Muttanna 2020
+      2: '/pages/cadence',            // Cadence 5cs Bangalore 2016
+      3: '/pages/sunfeast',       // Sunfeast Cup
+      4: '/pages/cgi',            // Intra CGI Bangalore Sports Fest 2014
+      5: '/pages/kingfisher',     // Kingfisher Corporate 5's Tournament
+      6: '/pages/jsw-marathon'    // JSW Marathon
     };
 
-    document.addEventListener('keydown', handleKeyPress);
-    return () => document.removeEventListener('keydown', handleKeyPress);
-  }, [isModalOpen, selectedCard]);
+    const route = eventRoutes[card.id] || `/events/${card.folder}`;
+    navigate(route, { state: { eventData: card } });
+  };
 
-  React.useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const id = params.get('id');
-    if (id) {
-      const card = cardsData.find(card => String(card.id) === String(id));
-      if (card) {
-        openModal(card);
-      }
-    }
-    // eslint-disable-next-line
-  }, [location.search]);
-
-    return (
-      <div className="about-page"
-      style={{ backgroundImage: "url('/imgs/bg-8.jpg')",
+  return (
+    <div className="about-page"
+      style={{
+        backgroundImage: "url('/imgs/bg-8.jpg')",
         backgroundRepeat: 'no-repeat'
-       }}>
-        <PageHeader 
-          title="EVENTS"        
-        />
+      }}>
+      <PageHeader title="EVENTS" />
       
       <div className="sports-cards-container">
         <div className="cards-grid">
           {cardsData.map((card) => (
-            <div 
-              key={card.id} 
+            <div
+              key={card.id}
               className="card"
-              onClick={() => openModal(card)}
+              onClick={() => handleCardClick(card)}
             >
               <div className="card-image-container">
                 <img
                   src={card.image}
                   alt={card.title}
                   className="card-image"
-          />
-          
-          </div>
+                />
+              </div>
               <div className="card-content">
                 <div className="card-title">{card.title}</div>
                 <div className="card-date">{card.date}</div>
@@ -170,34 +109,6 @@ const Events = () => {
           ))}
         </div>
       </div>
-
-      {/* Image Modal */}
-      {isModalOpen && selectedCard && (
-        <div className="modal-overlay" onClick={closeModal}>
-        <button className="nav-arrow nav-arrow-left" onClick={(e) => { e.stopPropagation(); prevImage(); }}>
-          ❮
-        </button>
-      
-        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-          <button className="modal-close" onClick={closeModal}>×</button>
-          <div className="modal-header">
-            <h3>{selectedCard.title}</h3>
-          </div>
-          <div className="modal-image-container">
-            <img
-              src={getImagePath(selectedCard.folder, currentImageIndex)}
-              alt={`${selectedCard.title} - Image ${currentImageIndex + 1}`}
-              className="modal-image"
-            />
-          </div>
-        </div>
-      
-        <button className="nav-arrow nav-arrow-right" onClick={(e) => { e.stopPropagation(); nextImage(); }}>
-          ❯
-        </button>
-      </div>
-      
-      )}
     </div>
   );
 };
