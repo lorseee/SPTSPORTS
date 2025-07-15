@@ -124,7 +124,7 @@ const Services = () => {
       textAlign: 'left'
     },
     benefitItem: {
-      cursor: 'pointer',
+      cursor: 'default',
       position: 'relative',
       transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
       opacity: 0,
@@ -439,7 +439,7 @@ const Services = () => {
           <div style={styles.centerImage}>
             <div style={styles.imageContainer}>
               <img 
-                src="/imgs/5.jpg" 
+                src="/imgs/services.jpg" 
                 alt="Runner in action"
                 style={styles.runnerImage}
               />

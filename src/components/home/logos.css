@@ -1,118 +1,126 @@
 .logos-section {
-    width: 100%;
-    text-align: center;
-    background-color: black;
-    padding: 1.55rem 0 0;
-    overflow-x: hidden;
-    color: #f5f5f5;
-    justify-content: center;
+  width: 100%;
+  text-align: center;
+  background-color: black;
+  padding-top: 0.5rem;
+  overflow-x: hidden;
+  margin-top: -2.2rem;
+  color: #f5f5f5;
+  justify-content: center;
+  padding: 1.35rem 0rem 0rem 0rem;
+}
+
+.logos-heading {
+  font-size: 2.5rem;
+  font-weight: 800;
+  padding-top: 2rem;
+  display: block;
+  justify-content: center;
+  line-height: 1;
+  margin-bottom: 1.2rem;
+  font-family: 'Oswald',sans-serif;
+}
+
+.logos-subheading {
+  font-size: 1.125rem;
+  color: #a0aec0;
+  margin-bottom: 2.5rem;
+  font-family: 'Switzer', system-ui, Helvetica, Arial, sans-serif;
+}
+
+.marquee-container {
+  width: 100%;
+  background-color: white;
+  overflow: hidden;
+  margin-bottom:1rem;
+  padding: 0; /* Removed vertical padding */
+}
+
+.marquee-content {
+  display: flex;
+  white-space: nowrap;
+}
+
+.logo-item {
+  flex-shrink: 0;
+  padding: 0 calc(var(--logo-spacing) / 4); /* Equal padding on both sides */
+  box-sizing: border-box;
+}
+
+.logo-wrapper {
+  width: var(--logo-width);
+  height: 5rem; /* Match original height from your code */
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
   }
-  
+  to {
+    transform: translate3d(
+      calc(-1 * var(--logo-count) * var(--total-item-width)), 
+      0, 
+      0
+    );
+  }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+  will-change: transform;
+}
+
+/* Responsive marquee calculation */
+.responsive-marquee {
+  /* This will be populated by JavaScript based on the number of logos */
+  min-width: calc(var(--logo-count) * var(--total-item-width) * 2);
+}
+
+/* Handle reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation-duration: 120s;
+  }
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
   .logos-heading {
-    font-size: 2.5rem;
-    font-weight: 800;
-    display: block;
-    justify-content: center;
-    line-height: 1;
-    margin-top: -1rem;
-    margin-bottom: 2.5rem;
-    font-family: 'Oswald', system-ui, Helvetica, Arial, sans-serif;
+    margin-top:2rem;
+    font-size: 6rem;
   }
   
   .logos-subheading {
-    font-size: 1.125rem;
-    color: #a0aec0;
-    margin-bottom: 2.5rem;
-    font-family: 'Switzer', system-ui, Helvetica, Arial, sans-serif;
-  }
-  
-  .marquee-container {
-    width: 100%;
-    background-color: white;
-    overflow-x: hidden;
-    margin-top: 40px;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  .marquee-content {
-    display: flex;
-    white-space: nowrap;
-    width: calc(var(--total-item-width, 190px) * var(--logo-count, 20) * 2);
-    animation: marquee 60s linear infinite; /* Changed from 40s to 60s */
-    will-change: transform; /* Add this for better performance */
-  }
-  
-  .logo-item {
-    flex-shrink: 0;
-    padding: 0 calc(var(--logo-spacing, 20px) / 2);
-    box-sizing: border-box;
+    font-size: 2rem;
+    margin-bottom: 2rem;
   }
   
   .logo-wrapper {
-    width: var(--logo-width, 180px);
-    height: 6rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logos-heading {
+    font-size: 2rem;
   }
   
-  .logo-image {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+  .logos-subheading {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
   }
   
-  @keyframes marquee {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(calc(var(--total-item-width, 190px) * var(--logo-count, 20) * -1));
-    }
+  .logo-wrapper {
+    height: 3.5rem;
   }
-  
-  .responsive-marquee {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-  
-  @media (prefers-reduced-motion: reduce) {
-    .marquee-content {
-      animation-duration: 120s;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .logos-heading {
-      font-size: 3rem;
-    }
-  
-    .logos-subheading {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-    }
-  
-    .logo-wrapper {
-      width: 100px;
-      height: 5rem;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .logos-heading {
-      font-size: 2rem;
-    }
-  
-    .logos-subheading {
-      font-size: 1rem;
-      margin-bottom: 1.5rem;
-    }
-  
-    .logo-wrapper {
-      width: 80px;
-      height: 3.5rem;
-    }
-  }
-  
+}

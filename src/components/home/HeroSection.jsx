@@ -5,13 +5,23 @@ import './hero.css';
 const HeroSection = () => {
   const backgroundImages = [
     '/imgs/gallery-2.png',
+    '/imgs/bg-13.jpg',
+    '/imgs/bg-10.JPG',
+    '/imgs/bg-11.JPG',
     '/imgs/bg-1.jpg',
     '/imgs/bg-3.jpg',
-    '/imgs/bg-5.jpg',
+    '/imgs/bg-12.JPG',
+    
+    '/imgs/bg-14.jpg',
+    '/imgs/bg-15.jpg',
+    
+    
     '/imgs/bg-6.jpg',
     '/imgs/bg-7.jpg',
-    '/imgs/bg-8.jpg',
-    '/imgs/gallery-1.png',
+    
+    '/imgs/bg-9.JPG',
+    
+    
     
   ];
 

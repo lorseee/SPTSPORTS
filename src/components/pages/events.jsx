@@ -60,6 +60,14 @@ const Events = () => {
       imageCount: 5,
       type: "marathon",
       folder: "golf" // Note: This might need to be changed to "jsw" if images are in a different folder
+    },
+    {
+      id:7,
+      image:"/projects/netcracker/5.jpeg",
+      title: "Netcracker",
+      date: "Date not specified",
+      type : "tournament",
+      folder: "netcracker"
     }
   ];
 
@@ -71,7 +79,8 @@ const Events = () => {
       3: '/pages/sunfeast',       // Sunfeast Cup
       4: '/pages/cgi',            // Intra CGI Bangalore Sports Fest 2014
       5: '/pages/kingfisher',     // Kingfisher Corporate 5's Tournament
-      6: '/pages/jsw-marathon'    // JSW Marathon
+      6: '/pages/jsw-marathon' ,
+      7: '/pages/netcracker'   // JSW Marathon
     };
 
     const route = eventRoutes[card.id] || `/events/${card.folder}`;
@@ -113,4 +122,4 @@ const Events = () => {
   );
 };
 
-export default Events;
+export default Events;2

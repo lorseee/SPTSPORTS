@@ -57,7 +57,7 @@ const EventDetail = () => {
       
       <div className="event-detail-container">
         <div className="event-header">
-          <h1 className="event-title">{eventData.title}</h1>
+          <h1 className="events-titles">{eventData.title}</h1>
           <div className="event-meta">
             <span className="event-date">{eventData.date}</span>
             

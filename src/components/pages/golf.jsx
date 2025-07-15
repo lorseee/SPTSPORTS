@@ -41,16 +41,15 @@ const GolfEvent = () => {
       
       <div className="event-detail-container">
         <div className="event-header">
-          <h1 className="event-title">{eventData.title}</h1>
-          <div className="event-meta">
-            <span className="event-date">{eventData.date}</span>
+
            
-          </div>
+          
         </div>
 
         <div className="event-content">
           <div className="event-description">
-            <h2>GOLF TOURNAMENT HIGHLIGHTS & MEMORIES</h2>
+             <h2>{eventData.title}</h2>
+            <span className="event-date">{eventData.date}</span>
             <p>{eventData.description}</p>
           </div>
 

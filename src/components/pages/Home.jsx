@@ -5,6 +5,7 @@ import EventsDisplay from '../home/eventsdisplay';
 import Services from '../home/services';
 import TestimonialSlider from '../home/Testimonial';
 import Logos from '../home/logos';
+import CitySportsSection from '../home/list';
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <Info />
       <Services />
       <EventsDisplay />
+      <CitySportsSection />
       
       <TestimonialSlider />
       <Logos />
