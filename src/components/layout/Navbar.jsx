@@ -68,7 +68,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="logo">
             <Link to="/" onClick={closeMobileMenu}>
-              <img src="/imgs/logo.png" alt="SPT Sports" className="logo-img" />
+              <img src="/imgs/iconnew.png" alt="SPT Sports" className="logo-img" />
             </Link>
           </div>
 

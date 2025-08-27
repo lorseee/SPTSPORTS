@@ -1,19 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PageHeader from '../layout/PageHeader';
 import '../styles/eventdetail.css';
 
 const NetcrackerEvent = () => {
   const navigate = useNavigate();
-  const [selectedImage, setSelectedImage] = useState(null);
+ const [selectedIndex, setSelectedIndex] = useState(null); 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const eventData = {
     title: "Netcracker Sports Tournament",
-    date: "Monday, 04 August 2014",
     type: "Sports Tournament",
-    description: "A comprehensive sports festival organized within Bangalore, featuring multiple sporting events and activities. This intra-company tournament promoted team spirit, healthy competition, and employee engagement through various sports disciplines.",
-    imageCount: 6,
+    description: (
+    <ul className="event-details-list">
+    <li><span>Event Name:</span> Netcrackers Intra-Corporate Tournament</li>
+    <li><span>Locations:</span> Pune, Hyderabad, and Bangalore</li>
+    <li><span>Type:</span> Intra-Corporate Sports Tournament</li>
+    <li><span>Participants:</span> Around 700 employees annually</li>
+    <li><span>Highlight:</span> A vibrant and eagerly awaited event on the corporate sports calendar</li>
+  </ul>
+),
     folder: "netcracker"
   };
 
@@ -21,19 +27,50 @@ const NetcrackerEvent = () => {
     return `/projects/netcracker/${index + 1}.jpeg`;
   };
 
-  const openImageModal = (imagePath) => {
-    setSelectedImage(imagePath);
+  
+  const openImageModal = (index) => {
+    setSelectedIndex(index);
     setIsModalOpen(true);
     document.body.style.overflow = 'hidden';
   };
 
   const closeImageModal = () => {
     setIsModalOpen(false);
-    setSelectedImage(null);
+    setSelectedIndex(null);
     document.body.style.overflow = 'unset';
   };
 
-  const images = Array.from({ length: eventData.imageCount }, (_, i) => getImagePath(i));
+  const showNextImage = (e) => {
+    e.stopPropagation();
+    setSelectedIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const showPrevImage = (e) => {
+    e.stopPropagation();
+    setSelectedIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+    const images = Array.from({ length: eventData.imageCount }, (_, i) => getImagePath(i));
+  // Keyboard shortcuts for modal navigation
+  useEffect(() => {
+    if (!isModalOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowRight') {
+        showNextImage();
+      } else if (e.key === 'ArrowLeft') {
+        showPrevImage();
+      } else if (e.key === 'Escape') {
+        closeImageModal();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isModalOpen, images.length]);
+
+
 
   return (
     <div className="event-detail-page">
@@ -56,7 +93,7 @@ const NetcrackerEvent = () => {
               <div 
                 key={index} 
                 className="event-image-item"
-                onClick={() => openImageModal(imagePath)}
+                onClick={() => openImageModal(index)}
               >
                 <img
                   src={imagePath}
@@ -79,7 +116,7 @@ const NetcrackerEvent = () => {
         <div className="next-button-container">
           <button 
             className="next-button"
-            onClick={() => navigate('/pages/kingfisher')}
+            onClick={() => navigate('/pages/banana')}
           >
             Next Event →
           </button>
@@ -87,15 +124,17 @@ const NetcrackerEvent = () => {
       </div>
 
       {/* Image Modal */}
-      {isModalOpen && selectedImage && (
+      {isModalOpen && selectedIndex !== null && (
         <div className="image-modal-overlay" onClick={closeImageModal}>
           <div className="image-modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="image-modal-close" onClick={closeImageModal}>×</button>
+            <button className="image-modal-prev" onClick={showPrevImage}>←</button>
             <img
-              src={selectedImage}
-              alt="Full size view"
+              src={images[selectedIndex]}
+              alt={`Full size view - ${selectedIndex + 1}`}
               className="image-modal-img"
             />
+            <button className="image-modal-next" onClick={showNextImage}>→</button>
           </div>
         </div>
       )}

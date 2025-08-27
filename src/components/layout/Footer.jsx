@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Logo and Description */}
           <div className="footer-section">
             <div className="footer-logo">
-              <img src="/imgs/tablogo.jpg" alt="SPT Sports" className="logo-image" />
+              <img src="/imgs/iconnew.png" alt="SPT Sports" className="logo-image" />
             </div>
             <p className="footer-description">
             SPT Sports is a leading sports management company with a nationwide presence. We promote sports through high-quality events, our own academies, and infrastructure development. Known for our professionalism and efficiency.
@@ -32,30 +32,34 @@ const Footer = () => {
 
           {/* Academy Address */}
           <div className="footer-section">
-            <h3 className="footer-title">Academy Address</h3>
+     <h3 className="footer-title">
+  SPORTS CENTRE
+  <br />
+  <span className="bracket-text">(FOOTBALL, CRICKET, PICKLEBALL)</span>
+</h3>
             <div className="contact-item">
               <MapPin size={24} />
-              <span className="contact-value">Banana Sports,
+              <span className="contact-value-2">Banana Sports,
 Mullur, Sarjapur Road<br />
-Bangalore - 560035</span>
+              Bangalore - 560035</span>
             </div>
           </div>
 
           {/* Head Office */}
           <div className="footer-section office-section">
             <h3 className="footer-title">Head Office</h3>
-            <div className="contact-item">
+            <div className="contact-item-map">
               <MapPin size={24} />
               <span className="contact-value">10 Sports House, 1st main
 1st block, Koramangala,
 Bangalore - 560034</span>
             </div>
 
-            <div className="contact-item">
+            <div className="contact-item-phone">
               <Phone size={18} />
               <div>
-                <span className="contact-label">Contact us at</span>
-                <span className="contact-value">81470 72726</span>
+                
+                <span className="contact-value">+91 81470 72726</span>
               </div>
             </div>
           </div>

@@ -11,6 +11,8 @@ import CGIEvent from "../components/pages/cgi";
 import JSWMarathonEvent from "../components/pages/jsw";
 import SunfeastEvent from "../components/pages/sunfeast";
 import NetcrackerEvent from "../components/pages/netcracker";
+import BananaEvent from "../components/pages/banana";
+import KabaddiEvent from "../components/pages/kabaddi";
 
 const AppRoutes = () => {
     return (
@@ -27,6 +29,8 @@ const AppRoutes = () => {
             <Route path="/pages/jsw-marathon" element={<JSWMarathonEvent />} />
             <Route path="/pages/sunfeast" element={<SunfeastEvent />} />
             <Route path="/pages/netcracker" element={<NetcrackerEvent />} />
+            <Route path="/pages/banana" element={<BananaEvent />} />
+            <Route path="/pages/kabaddi" element={<KabaddiEvent />} />
         </Routes>
     );
 };

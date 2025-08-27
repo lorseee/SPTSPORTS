@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import PageHeader from '../layout/PageHeader';
 import '../styles/eventdetail.css';
@@ -6,7 +6,7 @@ import '../styles/eventdetail.css';
 const EventDetail = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null); // store index instead of just image path
   const [isModalOpen, setIsModalOpen] = useState(false);
   
   const eventData = location.state?.eventData;
@@ -28,29 +28,56 @@ const EventDetail = () => {
     const extension = folder === 'sunfeast' ? 'jpg' : 'jpeg';
     return `/projects/${folder}/${imageNumber}.${extension}`;
   };
-
-  const openImageModal = (imagePath) => {
-    setSelectedImage(imagePath);
-    setIsModalOpen(true);
-    document.body.style.overflow = 'hidden';
-  };
-
-  const closeImageModal = () => {
-    setIsModalOpen(false);
-    setSelectedImage(null);
-    document.body.style.overflow = 'unset';
-  };
-
+  
   const generateImages = () => {
-    const images = [];
-    for (let i = 0; i < eventData.imageCount; i++) {
-      images.push(getImagePath(eventData.folder, i));
-    }
-    return images;
+    return Array.from({ length: eventData.imageCount }, (_, i) =>
+      getImagePath(eventData.folder, i)
+    );
   };
 
   const images = generateImages();
+  
+  const openImageModal = (index) => {
+    setSelectedIndex(index);
+    setIsModalOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+  
+  const closeImageModal = () => {
+    setIsModalOpen(false);
+    setSelectedIndex(null);
+    document.body.style.overflow = 'unset';
+  };
 
+  const showNextImage = (e) => {
+    e.stopPropagation();
+    setSelectedIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const showPrevImage = (e) => {
+    e.stopPropagation();
+    setSelectedIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+  // Keyboard shortcuts for modal navigation
+  useEffect(() => {
+    if (!isModalOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowRight') {
+        showNextImage();
+      } else if (e.key === 'ArrowLeft') {
+        showPrevImage();
+      } else if (e.key === 'Escape') {
+        closeImageModal();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isModalOpen, images.length]);
+  
   return (
     <div className="event-detail-page">
       <PageHeader title="EVENTS" />
@@ -60,7 +87,6 @@ const EventDetail = () => {
           <h1 className="events-titles">{eventData.title}</h1>
           <div className="event-meta">
             <span className="event-date">{eventData.date}</span>
-            
           </div>
         </div>
 
@@ -79,7 +105,7 @@ const EventDetail = () => {
               <div 
                 key={index} 
                 className="event-image-item"
-                onClick={() => openImageModal(imagePath)}
+                onClick={() => openImageModal(index)}
               >
                 <img
                   src={imagePath}
@@ -101,16 +127,23 @@ const EventDetail = () => {
         </div>
       </div>
 
-      {/* Full-size image modal */}
-      {isModalOpen && selectedImage && (
+      {/* Full-size image modal with navigation arrows */}
+      {isModalOpen && selectedIndex !== null && (
         <div className="image-modal-overlay" onClick={closeImageModal}>
           <div className="image-modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="image-modal-close" onClick={closeImageModal}>×</button>
+            
+            {/* Previous Button */}
+            <button className="image-modal-prev" onClick={showPrevImage}>←</button>
+
             <img
-              src={selectedImage}
-              alt="Full size view"
+              src={images[selectedIndex]}
+              alt={`Full size view - ${selectedIndex + 1}`}
               className="image-modal-img"
             />
+
+            {/* Next Button */}
+            <button className="image-modal-next" onClick={showNextImage}>→</button>
           </div>
         </div>
       )}

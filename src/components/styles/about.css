@@ -282,11 +282,19 @@
   .about-content {
     flex-direction: column;
     gap: 30px;
+    padding-right: 20px;
   }
   
   .image-section {
     flex: none;
     max-width: 100%;
+  }
+  
+  .about-image {
+    margin-left: 0;
+    width: 100%;
+    max-width: 450px;
+    height: auto;
   }
 }
 
@@ -301,6 +309,7 @@
   
   .main-content-container {
     padding: 15px;
+    
   }
   
   .spt-sports-container,
@@ -310,15 +319,44 @@
   
   .about-content {
     gap: 30px;
+    padding-right: 20px;
+  }
+  
+  .about-image {
+    margin-left: 0;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
   }
   
   .tab-button {
     margin-right: 32px;
-    font-size: 28px;
+    font-size: 18px;
+  }
+  
+  .tab-button.active {
+    font-size: 20px;
   }
   
   .spt-title {
     font-size: 1.8rem;
+  }
+  
+  .spt-content-wrapper {
+    gap: 20px;
+  }
+  
+  .spt-image {
+    padding-left: 0;
+    margin-right: 0;
+    height: auto;
+    max-width: 100%;
+  }
+  
+  .spt-image-section {
+    padding-left: 0;
+    margin-right: 0;
+    text-align: center;
   }
 }
 
@@ -331,17 +369,61 @@
     font-size: 2rem;
   }
   
+  .main-content-container {
+    padding: 10px;
+  }
+  
   .spt-sports-container,
   .about-container {
-    padding: 20px 15px;
+    padding: 30px 15px;
+    gap:10px;
+    padding-bottom:80px;
+  }
+  
+  .about-content {
+    gap: 50px;
+    padding-right: 15px;
+  }
+  
+  .about-image {
+    margin-left: 0;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
   }
   
   .tab-button {
     margin-right: 24px;
-    font-size: 24px;
+    font-size: 16px;
+    padding: 12px 16px 12px 0;
+  }
+  
+  .tab-button.active {
+    font-size: 18px;
   }
   
   .spt-title {
     font-size: 1.6rem;
+  }
+  
+  .spt-content-wrapper {
+    gap: 15px;
+  }
+  
+  .spt-image {
+    padding-left: 0;
+    margin-right: 0;
+    height: auto;
+    max-width: 100%;
+  }
+  
+  .spt-image-section {
+    padding-left: 0;
+    margin-right: 0;
+    text-align: center;
+  }
+  
+  .image-section {
+    text-align: center;
   }
 }

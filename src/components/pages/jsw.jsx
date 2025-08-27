@@ -1,39 +1,76 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PageHeader from '../layout/PageHeader';
 import '../styles/eventdetail.css';
 
 const JSWMarathonEvent = () => {
   const navigate = useNavigate();
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const eventData = {
     title: "JSW Marathon",
-    date: "Date not specified",
     type: "Marathon Event",
-    description: "A challenging and inspiring marathon event organized by JSW. This long-distance running event attracted participants from various backgrounds, promoting fitness, endurance, and community spirit through the joy of running.",
-    imageCount: 5,
-    folder: "golf" // Note: Based on your data, images are in golf folder
+    description: (
+    <ul className="event-details-list">
+      <li><span>Event Name:</span> JSW Bangalore Half Marathon</li>
+      <li><span>Year:</span> 2005</li>
+      <li><span>Sponsor:</span> JSW Ltd.</li>
+      <li><span>Participants (10K Run):</span> 5,500+ runners</li>
+      <li><span>Participants (Half Marathon):</span> 600+ runners</li>
+      <li><span>Race Categories:</span> 10 km run & Half Marathon (21 km)</li>
+    </ul>
+  ),
+    imageCount: 18,
+    folder: "jsw" // Note: Based on your data, images are in jsw folder
   };
 
   const getImagePath = (index) => {
-    return `/projects/golf/${index + 1}.jpeg`;
+    return `/projects/jsw/${index + 1}.JPG`;
   };
-
-  const openImageModal = (imagePath) => {
-    setSelectedImage(imagePath);
+ const images = Array.from({ length: eventData.imageCount }, (_, i) => getImagePath(i));
+  
+  const openImageModal = (index) => {
+    setSelectedIndex(index);
     setIsModalOpen(true);
     document.body.style.overflow = 'hidden';
   };
 
   const closeImageModal = () => {
     setIsModalOpen(false);
-    setSelectedImage(null);
+    setSelectedIndex(null);
     document.body.style.overflow = 'unset';
   };
 
-  const images = Array.from({ length: eventData.imageCount }, (_, i) => getImagePath(i));
+  const showNextImage = (e) => {
+    e.stopPropagation();
+    setSelectedIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const showPrevImage = (e) => {
+    e.stopPropagation();
+    setSelectedIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+  // Keyboard shortcuts for modal navigation
+  useEffect(() => {
+    if (!isModalOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowRight') {
+        showNextImage();
+      } else if (e.key === 'ArrowLeft') {
+        showPrevImage();
+      } else if (e.key === 'Escape') {
+        closeImageModal();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isModalOpen, images.length]);
+  
 
   return (
     <div className="event-detail-page">
@@ -41,15 +78,13 @@ const JSWMarathonEvent = () => {
       
       <div className="event-detail-container">
         <div className="event-header">
-          <h1 className="events-titles">{eventData.title}</h1>
-          <div className="event-meta">
-            <span className="event-date">{eventData.date}</span>
-          </div>
+          
         </div>
 
         <div className="event-content">
           <div className="event-description">
-            <h2>MARATHON HIGHLIGHTS & MEMORIES</h2>
+            <h2>{eventData.title}</h2>
+            <span className="event-date">{eventData.date}</span>
             <p>{eventData.description}</p>
           </div>
 
@@ -58,7 +93,7 @@ const JSWMarathonEvent = () => {
               <div 
                 key={index} 
                 className="event-image-item"
-                onClick={() => openImageModal(imagePath)}
+                onClick={() => openImageModal(index)}
               >
                 <img
                   src={imagePath}
@@ -81,7 +116,7 @@ const JSWMarathonEvent = () => {
         <div className="next-button-container">
           <button 
             className="next-button"
-            onClick={() => navigate('/pages/golf')}
+            onClick={() => navigate('/pages/netcracker')}
           >
             Next Event →
           </button>
@@ -89,15 +124,17 @@ const JSWMarathonEvent = () => {
       </div>
 
       {/* Image Modal */}
-      {isModalOpen && selectedImage && (
+     {isModalOpen && selectedIndex !== null && (
         <div className="image-modal-overlay" onClick={closeImageModal}>
           <div className="image-modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="image-modal-close" onClick={closeImageModal}>×</button>
+            <button className="image-modal-prev" onClick={showPrevImage}>←</button>
             <img
-              src={selectedImage}
-              alt="Full size view"
+              src={images[selectedIndex]}
+              alt={`Full size view - ${selectedIndex + 1}`}
               className="image-modal-img"
             />
+            <button className="image-modal-next" onClick={showNextImage}>→</button>
           </div>
         </div>
       )}

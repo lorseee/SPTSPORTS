@@ -1,52 +1,86 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PageHeader from '../layout/PageHeader';
 import '../styles/eventdetail.css';
 
 const SunfeastEvent = () => {
   const navigate = useNavigate();
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const eventData = {
     title: "Sunfeast Cup",
-    date: "Monday, 19 August 2019",
     type: "Tournament",
-    description: "The Sunfeast Cup was an exciting tournament that brought together teams from across the region. This competitive event showcased exceptional talent and sportsmanship, creating memorable moments for both participants and spectators alike. The tournament featured intense matches and celebrated the spirit of fair play and competitive excellence.",
-    imageCount: 10,
+    description: (
+  <ul className="event-details-list">
+    <li><span>Event Name:</span> Sunfeast Cup (SF Cup)</li>
+    <li><span>Launched:</span> 2015</li>
+    <li><span>Region:</span> NorthEast India and Ladakh</li>
+    
+    <li><span>Participants:</span> 6,000+ teams over 8 years of different clubs,schools etc.</li>
+    
+    <li><span>Highlight:</span> Exclusive football tournament , a platform where players were scouted for ISL and I-League teams</li>
+  </ul>
+),
+    imageCount: 18,
     folder: "sunfeast"
   };
 
-  const getImagePath = (index) => {
-    return `/projects/sunfeast/${index + 1}.jpg`;
-  };
+  const getImagePath = (index) => `/projects/sunfeast/${index + 1}.jpg`;
 
-  const openImageModal = (imagePath) => {
-    setSelectedImage(imagePath);
+  // ✅ Move this ABOVE functions that use it
+  const images = Array.from({ length: eventData.imageCount }, (_, i) => getImagePath(i));
+
+  const openImageModal = (index) => {
+    setSelectedIndex(index);
     setIsModalOpen(true);
     document.body.style.overflow = 'hidden';
   };
 
   const closeImageModal = () => {
     setIsModalOpen(false);
-    setSelectedImage(null);
+    setSelectedIndex(null);
     document.body.style.overflow = 'unset';
   };
 
-  const images = Array.from({ length: eventData.imageCount }, (_, i) => getImagePath(i));
+  const showNextImage = (e) => {
+    if (e) e.stopPropagation();
+    setSelectedIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const showPrevImage = (e) => {
+    if (e) e.stopPropagation();
+    setSelectedIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  // Keyboard shortcuts for modal navigation
+  useEffect(() => {
+    if (!isModalOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowRight') {
+        showNextImage();
+      } else if (e.key === 'ArrowLeft') {
+        showPrevImage();
+      } else if (e.key === 'Escape') {
+        closeImageModal();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isModalOpen, images.length]);
 
   return (
     <div className="event-detail-page">
       <PageHeader title="EVENTS" backgroundImage="/imgs/bg-8.jpg" />
       
       <div className="event-detail-container">
-        <div className="event-header">
-          
-        </div>
-
         <div className="event-content">
           <div className="event-description">
-             <h2>{eventData.title}</h2>
+            <h2>{eventData.title}</h2>
             <span className="event-date">{eventData.date}</span>
             <p>{eventData.description}</p>
           </div>
@@ -56,12 +90,13 @@ const SunfeastEvent = () => {
               <div 
                 key={index} 
                 className="event-image-item"
-                onClick={() => openImageModal(imagePath)}
+                onClick={() => openImageModal(index)}
               >
                 <img
                   src={imagePath}
                   alt={`${eventData.title} - Image ${index + 1}`}
                   className="event-image"
+                  loading="lazy"
                 />
               </div>
             ))}
@@ -69,33 +104,30 @@ const SunfeastEvent = () => {
         </div>
 
         <div className="back-button-container">
-          <button 
-            className="back-button"
-            onClick={() => navigate('/events')}
-          >
+          <button className="back-button" onClick={() => navigate('/events')}>
             ← Back to Events
           </button>
         </div>
         <div className="next-button-container">
-          <button 
-            className="next-button"
-            onClick={() => navigate('/pages/cgi')}
-          >
+          <button className="next-button" onClick={() => navigate('/pages/cgi')}>
             Next Event →
           </button>
         </div>
       </div>
 
       {/* Image Modal */}
-      {isModalOpen && selectedImage && (
+      {isModalOpen && selectedIndex !== null && (
         <div className="image-modal-overlay" onClick={closeImageModal}>
           <div className="image-modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="image-modal-close" onClick={closeImageModal}>×</button>
+            <button className="image-modal-prev" onClick={showPrevImage}>←</button>
             <img
-              src={selectedImage}
-              alt="Full size view"
+              src={images[selectedIndex]}
+              alt={`Full size view - ${selectedIndex + 1}`}
               className="image-modal-img"
+              loading="lazy"
             />
+            <button className="image-modal-next" onClick={showNextImage}>→</button>
           </div>
         </div>
       )}

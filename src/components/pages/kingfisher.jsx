@@ -1,19 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import PageHeader from '../layout/PageHeader';
 import '../styles/eventdetail.css';
 
 const KingfisherEvent = () => {
   const navigate = useNavigate();
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const eventData = {
     title: "Kingfisher Corporate 5's Tournament",
-    date: "Thursday, 09 May 2013",
     type: "Corporate Tournament",
-    description: "An exciting corporate 5-a-side tournament sponsored by Kingfisher. This event brought together teams from various companies for an intense day of football competition, fostering corporate networking and sportsmanship in a professional yet fun environment.",
-    imageCount: 8,
+    description:(
+    <ul className="event-details-list">
+    <li><span>Event Name:</span> Kingfisher Corp 5s</li>
+    <li><span>Years:</span> 2001–2013</li>
+    <li><span>Type:</span> Corporate Football (Futsal, 5-a-side)</li>
+    <li><span>Highlight:</span> First-of-its-kind corporate football event across India and  <br />
+                      winners of all cities played the finals to decide the National Corporate Futsal Champions</li>
+    <li><span>Cities Covered:</span> Bangalore, Mumbai, Delhi, Pune, Hyderabad, Kolkata</li>
+    
+  </ul>
+),
+    imageCount: 24,
     folder: "kingfisher"
   };
 
@@ -21,19 +30,47 @@ const KingfisherEvent = () => {
     return `/projects/kingfisher/${index + 1}.jpeg`;
   };
 
-  const openImageModal = (imagePath) => {
-    setSelectedImage(imagePath);
+  const openImageModal = (index) => {
+    setSelectedIndex(index);
     setIsModalOpen(true);
     document.body.style.overflow = 'hidden';
   };
 
   const closeImageModal = () => {
     setIsModalOpen(false);
-    setSelectedImage(null);
+    setSelectedIndex(null);
     document.body.style.overflow = 'unset';
   };
+  const showNextImage = (e) => {
+    e.stopPropagation();
+    setSelectedIndex((prev) => (prev + 1) % images.length);
+  };
 
+  const showPrevImage = (e) => {
+    e.stopPropagation();
+    setSelectedIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
   const images = Array.from({ length: eventData.imageCount }, (_, i) => getImagePath(i));
+// Keyboard shortcuts for modal navigation
+  useEffect(() => {
+    if (!isModalOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowRight') {
+        showNextImage();
+      } else if (e.key === 'ArrowLeft') {
+        showPrevImage();
+      } else if (e.key === 'Escape') {
+        closeImageModal();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isModalOpen, images.length]);
+  
 
   return (
     <div className="event-detail-page">
@@ -56,7 +93,7 @@ const KingfisherEvent = () => {
               <div 
                 key={index} 
                 className="event-image-item"
-                onClick={() => openImageModal(imagePath)}
+                onClick={() => openImageModal(index)}
               >
                 <img
                   src={imagePath}
@@ -87,15 +124,18 @@ const KingfisherEvent = () => {
       </div>
 
       {/* Image Modal */}
-      {isModalOpen && selectedImage && (
+      {isModalOpen &&  selectedIndex !== null  && (
         <div className="image-modal-overlay" onClick={closeImageModal}>
           <div className="image-modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="image-modal-close" onClick={closeImageModal}>×</button>
+            
+             <button className="image-modal-prev" onClick={showPrevImage}>←</button>
             <img
-              src={selectedImage}
-              alt="Full size view"
+              src={images[selectedIndex]}
+              alt={`Full size view - ${selectedIndex + 1}`}
               className="image-modal-img"
             />
+            <button className="image-modal-next" onClick={showNextImage}>→</button>
           </div>
         </div>
       )}

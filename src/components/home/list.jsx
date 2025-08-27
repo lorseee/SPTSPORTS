@@ -4,17 +4,36 @@ import './list.css';
 import chennaiIcon from '/icons/chennai.png';
 import hyderabadIcon from '/icons/hyderabad.png';
 import bengaluruIcon from '/icons/bengaluru.png';
-import mumbaiIcon from '/icons/delhi.png';       // If added
+import mumbaiIcon from '/icons/mumbai.png'; 
+import goaIcon from '/icons/kochi.png'
+import apIcon from '/icons/ap.png';
+import lehIcon from '/icons/leh.png';
+import delhiIcon from '/icons/delhi.png';
+import tripuraIcon from '/icons/tripura.png';
+import meghIcon from '/icons/meghalaya.png';       // If added
 import sikkimIcon from '/icons/sikkim.png';
+import manipurIcon from '/icons/manipur.png';
 import assamIcon from '/icons/assam.png';
+import mizoIcon from '/icons/mizo.png';
+import agarIcon from '/icons/agar.png';
 import mizoramIcon from '/icons/ahmedabad.png';     // You still need to add this
 import puneIcon from '/icons/pune.png';
 import kolkataIcon from '/icons/kolkata.png';
 import nagpurIcon from '/icons/nagpur.png';
-import cricketIcon from '/icons/cricket.png';
+import cricketIcon from '/icons/cricket1.png';
 import footballIcon from '/icons/football.png';
+import carromIcon from '/icons/carrom.png';
+import basketballIcon from '/icons/basketball.png';
+import throwballIcon from '/icons/throwball.png';
+import volleyballIcon from '/icons/volleyball.jpg';
+import halfIcon from '/icons/halfmarathon.png';
+import athIcon from '/icons/athletics.png';
+import pbIcon from '/icons/pickleball.jpg'
+import chessIcon from '/icons/chess.png';
+import ttIcon from '/icons/tt.png';
 import tennisIcon from '/icons/tennis.png';
-import golfIcon from '/icons/golf.jpg';
+import squashIcon from '/icons/squash.png';
+import golfIcon from '/icons/golf.png';
 import BadmintonIcon from '/icons/badminton.png';
 import swimmingIcon from '/icons/swimming.png';
 
@@ -23,21 +42,27 @@ const CitySportsSection = () => {
   const [showSportsDropdown, setShowSportsDropdown] = useState(false);
 
   const popularCities = [
- { name: 'Bengaluru', icon: kolkataIcon},
-  { name: 'Chennai', icon: chennaiIcon },
-  { name: 'Hyderabad', icon: hyderabadIcon },
-  { name: 'Assam', icon: assamIcon },
-    { name: 'Nagpur', icon: nagpurIcon },
-    { name: 'Siligudi', icon: mizoramIcon }, // Assuming mizoramIcon is used for Ahmedabad
-    { name: 'Meghalaya', icon: mumbaiIcon },
-  { name: 'Arunachal Pradesh', icon: chennaiIcon},
+ { name: 'Bengaluru', icon: bengaluruIcon},
+ { name: 'Chennai', icon: chennaiIcon },
+ { name: 'Hyderabad', icon: hyderabadIcon },
+ { name: 'Assam', icon: assamIcon },
+ { name: 'Nagpur', icon: nagpurIcon },
+ { name: 'Siliguri', icon: mizoramIcon }, // Assuming mizoramIcon is used for Ahmedabad
+ { name: 'Meghalaya', icon: meghIcon },
+  { name: 'Arunachal Pradesh', icon: apIcon},
   { name: 'Coimbatore', icon: puneIcon} ,
-  { name: 'Manipur', icon: assamIcon},// Assuming mumbaiIcon is used for Delhi
+  { name: 'Manipur', icon: manipurIcon},// Assuming mumbaiIcon is used for Delhi
   { name: 'Mumbai', icon: mumbaiIcon },
   { name: 'Sikkim', icon: sikkimIcon },
-  { name: 'Mizoram', icon: mizoramIcon },
+  { name: 'Mizoram', icon: mizoIcon },
   { name: 'Pune', icon: puneIcon },
   { name: 'Kolkata', icon: kolkataIcon },
+  { name: 'Delhi', icon: delhiIcon },
+  { name: 'Goa', icon: goaIcon },
+  { name: 'Tripura', icon: tripuraIcon },
+  { name:'Leh', icon: lehIcon },
+  { name:'Agartala', icon: agarIcon},
+  
   
 ];
 
@@ -45,18 +70,19 @@ const CitySportsSection = () => {
     { name: 'Cricket', icon: cricketIcon },
     { name: 'Football', icon: footballIcon },
     { name: 'Tennis', icon: tennisIcon },
-    { name: 'Half Marathon', icon: Timer },
-    { name: 'Table Tennis', icon: tennisIcon },
-    { name: 'Carrom', icon: Gamepad2 },
-    { name: 'Throwball', icon: Medal },
-    { name: 'Chess', icon: Gamepad2 },
+    { name: 'Half Marathon', icon: halfIcon },
+    { name: 'Table Tennis', icon: ttIcon },
+    { name: 'Carrom & Chess', icon: carromIcon },
+    { name: 'Throwball', icon: throwballIcon },
+    
     { name: 'Badminton', icon: BadmintonIcon },
-    { name: 'Swimming', icon: Medal },
-    { name: 'Basketball', icon: footballIcon },
-    { name: 'Squash', icon: tennisIcon },
+    { name: 'Swimming', icon: swimmingIcon },
+    { name: 'Basketball', icon: basketballIcon },
+    { name: 'Squash', icon: squashIcon },
     { name: 'Golf', icon: golfIcon },
-    { name: 'Athletics', icon: Medal },
-    { name: 'Volleyball', icon: footballIcon }
+    { name: 'Athletics', icon: athIcon },
+    { name: 'Volleyball', icon: volleyballIcon },
+    { name: 'Pickleball', icon: pbIcon },
   ];
 
  

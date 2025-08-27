@@ -1,18 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PageHeader from '../layout/PageHeader';
 import '../styles/eventdetail.css';
 
 const CGIEvent = () => {
   const navigate = useNavigate();
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const eventData = {
     title: "Intra CGI Bangalore Sports Fest 2014",
-    date: "Monday, 04 August 2014",
+    
     type: "Sports Tournament",
-    description: "A comprehensive sports festival organized within CGI Bangalore, featuring multiple sporting events and activities. This intra-company tournament promoted team spirit, healthy competition, and employee engagement through various sports disciplines.",
+    description:(
+           <ul className="event-details-list">
+    <li><span>Event Name:</span> CGI Sports Tournament</li>
+    <li><span>Exclusivity & Objective:</span> Organized exclusively for CGI employees to foster team spirit and engagement throughout the year</li>
+    <li><span>Sports Featured:</span> Cricket, Football, Badminton, Table Tennis, and more</li>
+    <li><span>Participants:</span> 1,000+ employees</li>
+    <li><span>Frequency:</span> Annual event</li>
+  </ul>
+    ),
     imageCount: 9,
     folder: "cgi"
   };
@@ -21,19 +29,47 @@ const CGIEvent = () => {
     return `/projects/cgi/${index + 1}.jpeg`;
   };
 
-  const openImageModal = (imagePath) => {
-    setSelectedImage(imagePath);
+  const openImageModal = (index) => {
+    setSelectedIndex(index);
     setIsModalOpen(true);
     document.body.style.overflow = 'hidden';
   };
 
   const closeImageModal = () => {
     setIsModalOpen(false);
-    setSelectedImage(null);
+    setSelectedIndex(null);
     document.body.style.overflow = 'unset';
   };
+  const showNextImage = (e) => {
+    if (e) e.stopPropagation();
+    setSelectedIndex((prev) => (prev + 1) % images.length);
+  };
 
-  const images = Array.from({ length: eventData.imageCount }, (_, i) => getImagePath(i));
+  const showPrevImage = (e) => {
+    if (e) e.stopPropagation();
+    setSelectedIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+   const images = Array.from({ length: eventData.imageCount }, (_, i) => getImagePath(i));
+  // Keyboard shortcuts for modal navigation
+  useEffect(() => {
+    if (!isModalOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowRight') {
+        showNextImage();
+      } else if (e.key === 'ArrowLeft') {
+        showPrevImage();
+      } else if (e.key === 'Escape') {
+        closeImageModal();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isModalOpen, images.length]);
+ 
 
   return (
     <div className="event-detail-page">
@@ -48,7 +84,7 @@ const CGIEvent = () => {
           <div className="event-description">
              <h2>{eventData.title}</h2>
             <span className="event-date">{eventData.date}</span>
-            <p>{eventData.description}</p>
+            <div>{eventData.description}</div>
           </div>
 
           <div className="event-images-grid">
@@ -56,7 +92,7 @@ const CGIEvent = () => {
               <div 
                 key={index} 
                 className="event-image-item"
-                onClick={() => openImageModal(imagePath)}
+                onClick={() => openImageModal(index)}
               >
                 <img
                   src={imagePath}
@@ -87,15 +123,18 @@ const CGIEvent = () => {
       </div>
 
       {/* Image Modal */}
-      {isModalOpen && selectedImage && (
+      {isModalOpen &&  selectedIndex !== null  && (
         <div className="image-modal-overlay" onClick={closeImageModal}>
           <div className="image-modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="image-modal-close" onClick={closeImageModal}>×</button>
+    
+             <button className="image-modal-prev" onClick={showPrevImage}>←</button>
             <img
-              src={selectedImage}
-              alt="Full size view"
+              src={images[selectedIndex]}
+              alt={`Full size view - ${selectedIndex + 1}`}
               className="image-modal-img"
             />
+            <button className="image-modal-next" onClick={showNextImage}>→</button>
           </div>
         </div>
       )}

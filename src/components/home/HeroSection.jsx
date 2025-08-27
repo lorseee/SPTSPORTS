@@ -17,7 +17,7 @@ const HeroSection = () => {
     
     
     '/imgs/bg-6.jpg',
-    '/imgs/bg-7.jpg',
+    
     
     '/imgs/bg-9.JPG',
     
@@ -57,6 +57,7 @@ const HeroSection = () => {
           <div
             key={index}
             className={`hero-background-slide ${
+              
               index === currentImageIndex ? 'active' : ''
             }`}
             style={{

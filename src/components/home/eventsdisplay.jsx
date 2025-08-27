@@ -81,6 +81,9 @@ const EventsDisplay = () => {
           </Link>
         ))}
       </div>
+       <Link to="/events" className="view-all-button-mobile">
+        View All
+      </Link>
     </div>
   );
 };

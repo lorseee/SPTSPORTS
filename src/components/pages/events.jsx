@@ -11,7 +11,6 @@ const Events = () => {
       id: 1,
       image: "/projects/golf/1.jpeg",
       title: "N.A Muttanna 2020",
-      date: "Saturday, 11 January 2020",
       imageCount: 5,
       type: "golf",
       folder: "golf"
@@ -19,7 +18,6 @@ const Events = () => {
     {
       id: 2,
       image: "/projects/5c/1.jpeg",
-      date: "Friday, 5 February 2016",
       title: "Cadence 5cs Bangalore 2016",
       imageCount: 7,
       type: "football",
@@ -28,7 +26,6 @@ const Events = () => {
     {
       id: 3,
       image: "/projects/sunfeast/1.jpg",
-      date: "Monday, 19 August 2019",
       title: "Sunfeast Cup",
       imageCount: 10,
       type: "tournament",
@@ -37,7 +34,6 @@ const Events = () => {
     {
       id: 4,
       image: "/projects/cgi/1.jpeg",
-      date: "Monday, 04 August 2014",
       title: "Intra CGI Bangalore Sports Fest 2014",
       imageCount: 9,
       type: "tournament",
@@ -46,7 +42,6 @@ const Events = () => {
     {
       id: 5,
       image: "/projects/kingfisher/1.jpeg",
-      date: "Thursday, 09 May 2013",
       title: "Kingfisher Corporate 5's Tournament",
       imageCount: 8,
       type: "tournament",
@@ -54,9 +49,8 @@ const Events = () => {
     },
     {
       id: 6,
-      image: "/projects/golf/2.jpeg",
+      image: "/projects/jsw/2.JPG",
       title: "JSW Marathon",
-      date: "Date not specified",
       imageCount: 5,
       type: "marathon",
       folder: "golf" // Note: This might need to be changed to "jsw" if images are in a different folder
@@ -65,9 +59,22 @@ const Events = () => {
       id:7,
       image:"/projects/netcracker/5.jpeg",
       title: "Netcracker",
-      date: "Date not specified",
       type : "tournament",
       folder: "netcracker"
+    },
+    {
+      id:8,
+      image:"/projects/banana/8.png",
+      title: "Banana Sports Pickleball Open",
+      type : "tournament",
+      folder: "banana"
+    },
+    {
+      id: 9,
+      image: "/projects/kabaddi/1.jpg",
+      title: "Kabaddi Championship",
+      type: "tournament",
+      folder: "kabaddi"
     }
   ];
 
@@ -80,7 +87,9 @@ const Events = () => {
       4: '/pages/cgi',            // Intra CGI Bangalore Sports Fest 2014
       5: '/pages/kingfisher',     // Kingfisher Corporate 5's Tournament
       6: '/pages/jsw-marathon' ,
-      7: '/pages/netcracker'   // JSW Marathon
+      7: '/pages/netcracker'  ,
+      8: '/pages/banana' , 
+      9: '/pages/kabaddi'
     };
 
     const route = eventRoutes[card.id] || `/events/${card.folder}`;
@@ -122,4 +131,4 @@ const Events = () => {
   );
 };
 
-export default Events;2
+export default Events;

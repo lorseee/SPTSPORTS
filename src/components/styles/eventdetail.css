@@ -39,12 +39,7 @@
   flex-wrap: wrap;
 }
 
-.event-date {
-  background: rgba(255,255,255,0.2);
-  padding: 0.4rem 1rem;
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-}
+
 
 .event-type {
   background: rgba(255,255,255,0.2);
@@ -71,20 +66,43 @@
 }
 
 .event-description h2 {
-  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  font-size: clamp(2rem, 3vw, 1.8rem);
   font-weight: bold;
-  color: #333;
-  margin-bottom: 1rem;
+  color: #0c196b;
+  margin-bottom: 2rem;
+  margin-top:-1rem;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-.event-description p {
-  font-size: clamp(1rem, 2vw, 1.1rem);
-  line-height: 1.8;
-  color: #666;
-  max-width: 800px;
-  margin: 0 auto;
+
+.event-details-list {
+  list-style: none;
+  padding: 0;
+  
+  margin-top:-15px;
+  gap:1px;
+  text-align:center;
+}
+
+.event-details-list li {
+ color:#333;
+  border:none;
+  padding: 2px 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 1.5;
+  
+}
+
+
+
+.event-details-list li span {
+  font-weight: bold;
+  color: #050505;
+  margin-right: 6px;
+  text-align: center;
+  min-width: 160px;
 }
 
 .event-images-grid {
@@ -129,13 +147,14 @@
   flex: 0 0 auto;
   text-align: center;
   margin-top:2rem;
+  padding-bottom:2rem;
   margin-left:-13rem;
 }
 .next-button-container {
   flex: 0 0 auto;
   text-align: center;
-  margin-top:-3.5rem;
-  padding-bottom: 0.9rem;
+  margin-top:-5.5rem;
+  padding-bottom: 2.5rem;
   margin-right:-13rem;
 }
 
@@ -214,7 +233,7 @@
 
 .image-modal-img {
   max-width: 100%;
-  max-height: 100%;
+  max-height:90vh;
   object-fit: contain;
   border-radius: 10px;
   box-shadow: 0 20px 60px rgba(0,0,0,0.5);
@@ -223,25 +242,101 @@
 .image-modal-close {
   position: absolute;
   top: -40px;
-  right: -40px;
-  background: rgba(255,255,255,0.2);
+  right: -50px;
+  background:none;
   border: none;
+  outline:none;
   color: white;
   font-size: 2rem;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 90%;
   cursor: pointer;
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-  display: flex;
+  box-shadow:none;
+  display: block;
   align-items: center;
   justify-content: center;
 }
+.image-modal-close:focus {
+  outline: none;
+  box-shadow: none;
+}
 
 .image-modal-close:hover {
-  background: rgba(255,255,255,0.3);
+ 
   transform: scale(1.1);
+}
+/* Modal navigation arrows */
+.image-modal-prev,
+.image-modal-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 1001;
+  border-radius: 50%;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.image-modal-prev:hover,
+.image-modal-next:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.image-modal-prev {
+  left: -60px; /* position to the left of the image */
+}
+
+.image-modal-next {
+  right: -60px; /* position to the right of the image */
+}
+
+/* Responsive adjustments for smaller screens */
+  
+@media (max-width: 768px) {
+  .image-modal-prev,
+  .image-modal-next {
+    background: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    outline: none !important;
+    font-size: 40px;
+    padding: 0;
+    line-height: 1;
+    color: transparent;  /* hides the original text arrow */
+  }
+
+  .image-modal-prev {
+    left: -17px;   /* adjust closer to edge */
+  }
+
+  .image-modal-next {
+    right: -58px;
+  }
+
+  .image-modal-prev::before {
+    content: "‹";  /* left arrow */
+    color: white;
+    background:none;
+  }
+
+  .image-modal-next::before {
+    content: "›";  /* right arrow */
+    color: white;
+    background:none;
+  }
+  .image-modal-prev:focus,
+.image-modal-next:focus {
+  outline: none;
+  box-shadow: none;
+}
 }
 
 /* Mobile Responsive */
@@ -274,11 +369,11 @@
   }
   
   .image-modal-close {
-    top: -30px;
-    right: -30px;
-    width: 30px;
-    height: 30px;
-    font-size: 1.5rem;
+    top: -55px;
+    right: -38px;
+    width: 40px;
+    height: 40px;
+    font-size: 2rem;
   }
   
   .image-modal-overlay {
