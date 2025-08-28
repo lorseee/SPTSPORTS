@@ -125,7 +125,8 @@
 @media (max-width: 480px) {
   .logos-heading {
     font-size: 1.8rem;
-    margin-top: 0.5rem;
+    margin-top: 1.7rem;
+    margin-bottom: 0.5rem;
   }
 
   .logos-subheading {

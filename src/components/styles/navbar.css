@@ -47,7 +47,7 @@
 .logo-img {
   height: 185px;
   margin-left: -70px;
-  padding: 12px 24px;
+  padding: 11px 23px;
   border-radius: 25px;
   font-weight: 600;
   font-size: 14px;
@@ -152,6 +152,7 @@
   height: 30px;
   background: transparent;
   border: none;
+  outline:none;
   cursor: pointer;
   padding: 0;
   z-index: 1001;
@@ -185,6 +186,7 @@
 
 .mobile-menu-overlay.active {
   opacity: 1;
+  outline:none;
   visibility: visible;
 }
 
@@ -201,13 +203,17 @@
   transition: transform 0.3s ease;
   overflow-y: auto;
   box-shadow: -5px 0 25px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
+  outline:none;
 }
 
 .mobile-menu-overlay.active .mobile-menu {
   transform: translateX(0);
-}
 
+}
+.menu-button, .menu-button:focus, .menu-button:active {
+    outline: none;
+    box-shadow: none;
+}
 /* Mobile Menu Header */
 .mobile-menu-header {
   display: flex;
@@ -219,25 +225,11 @@
 }
 
 .mobile-logo .logo-img {
-  height: 85px;
+  height: 95px;
   margin-left: 20px;
 }
 
-.close-btn {
-  background: none;
-  border: none;
-  font-size: 32px;
-  color: #666;
-  cursor: pointer;
-  padding: 0;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: all 0.3s ease;
-}
+
 
 .close-btn:hover {
   background: #e9ecef;
@@ -345,6 +337,7 @@
     height: 120px; /* Slightly smaller logo on tablets */
     margin-left: -30px;
     padding: 12px 24px;
+    
   border-radius: 25px;
   font-weight: 600;
   font-size: 14px;
@@ -411,9 +404,10 @@
     min-width: 0;
   }
   .logo-img {
-    height: 100px;
-    max-width: auto;
-    margin-left: -10px; /* Reduced negative margin */
+    height: 160px;
+    max-width: 100%;
+    margin-left: -70px;
+    padding-bottom: 20px; /* Reduced negative margin */
   }
   .hamburger-btn {
     width: 25px;
@@ -432,14 +426,11 @@
     padding: 12px 15px;
   }
   .mobile-logo .logo-img {
-    height: 28px;
-    max-width: 100px;
+    height: 88px;
+    max-width: 100%;
+    margin-left:-10px;
   }
-  .close-btn {
-    font-size: 28px;
-    width: 35px;
-    height: 35px;
-  }
+ 
   .mobile-nav-link {
     font-size: 14px;
     padding: 10px 15px;
@@ -560,11 +551,7 @@
     height: 22px;
     max-width: 70px;
   }
-  .close-btn {
-    font-size: 24px;
-    width: 30px;
-    height: 30px;
-  }
+  
   .mobile-nav-link {
     padding: 5px 8px;
     font-size: 11px;

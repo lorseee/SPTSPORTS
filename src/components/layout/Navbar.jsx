@@ -108,13 +108,7 @@ const Navbar = () => {
               <div className="mobile-logo">
                 <img src="/imgs/logo.png" alt="SPT Sports" className="logo-img" />
               </div>
-              <button
-                className="close-btn"
-                onClick={closeMobileMenu}
-                aria-label="Close mobile menu"
-              >
-                ×
-              </button>
+              
             </div>
             
             <div className="mobile-menu-content">
