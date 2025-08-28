@@ -3,7 +3,7 @@ import "./logos.css";
 
 const Logos = () => {
   const logos = [
-   "/brands/1.png", "/brands/2.png", "/brands/20.png", "/brands/28.jpg", "/brands/23.jpg",
+   "/brands/1.png", "/brands/2.png", "/brands/20.png", "/brands/28.jpg", "/brands/23.png",
     "/brands/29.png", "/brands/6.png", "/brands/25.png", "/brands/8.png", "/brands/15.png", 
     "/brands/12.png", "/brands/9.png", "/brands/11.png", "/brands/7.png", "/brands/13.jpg", 
     "/brands/16.png", "/brands/14.png", "/brands/10.png", "/brands/27.png", "/brands/18.png", 
