@@ -7,7 +7,7 @@ const Achievements = () => {
   const images = [
     {
       id: 1,
-      title: "Mr. Amit Saran with Kapil Dev",
+      title: "Mr. Amit Saran with Mr.Kapil Dev",
       url: '/imgs/ach-1.jpg',
       thumbnail: '/imgs/ach-1.jpg'
     },
@@ -19,7 +19,7 @@ const Achievements = () => {
     },
     {
       id: 3,
-      title: 'Mr. Amit Saran with Milkha Singh(16-04-2014)',
+      title: 'Mr. Amit Saran with Mr.Milkha Singh(16-04-2014)',
       url: '/imgs/ach-3.png',
       thumbnail: '/imgs/ach-3.png'
     },
