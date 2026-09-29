@@ -65,7 +65,7 @@ Bangalore - 560034</span>
           </div>
         </div>
           <div style={{ textAlign: 'center', marginTop: '24px', paddingTop: '16px', borderTop: '1px solid rgba(255,255,255,0.2)', fontSize: '14px' }}>
-          SPT Sports Management Pvt. Ltd
+          SPT Sports Management Pvt. Ltd.
         </div>
       </div>  {/* end of container */}
     </footer>
